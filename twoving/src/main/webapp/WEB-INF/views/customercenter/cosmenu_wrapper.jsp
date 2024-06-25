@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/" class="cosmenu">공지사항</a>
+	<a href="notice" class="cosmenu">공지사항</a>
 	<a href="faq" class="cosmenu">FAQ</a>
 	<a href="servicepolicy" class="cosmenu">서비스 정책</a>
 	<a href="customerinquiry" class="cosmenu">고객문의</a>

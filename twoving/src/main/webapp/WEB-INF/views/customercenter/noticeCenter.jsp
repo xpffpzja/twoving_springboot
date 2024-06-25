@@ -68,7 +68,7 @@
 		</div>
 	</div> --%>
 	<jsp:include page="../paging/paging.jsp">
-			<jsp:param value="/" name="noticeList"/>
+			<jsp:param value="notice" name="noticeList"/>
 	</jsp:include>
 	</article>
 </section>

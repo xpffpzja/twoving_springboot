@@ -19,7 +19,7 @@ public class NoticeController {
     @Autowired
     NoticeService noticeService;
 
-    @GetMapping("/")
+    @GetMapping("/notice")
     public ModelAndView noticeCenterMethod(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
         HashMap<String, Object> hm = noticeService.noticeSelect(request);
