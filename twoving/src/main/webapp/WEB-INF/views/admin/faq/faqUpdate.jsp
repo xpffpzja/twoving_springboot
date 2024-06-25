@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
 
 <!-- <link rel="stylesheet" href="/admin/css/notice.css" /> -->
 <script type="text/javascript"> 
@@ -73,9 +73,9 @@
 			<div class="btn" >
 					<input type="button" value="FAQ수정" onClick="go_update3()">           
 					<input type="button" value="목록으로" 
-							onClick="location.href='twoving.do?command=adminFaqList'">
+							onClick="location.href='adminFaqList'">
 			</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../footer.jsp" %>

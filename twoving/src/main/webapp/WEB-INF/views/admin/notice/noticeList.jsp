@@ -3,13 +3,13 @@
 <%@ include file="../header.jsp" %>
 <%@ include file="../sub_menu.jsp" %>
 
- <script type="text/javascript"> 
+<%-- <script type="text/javascript">
  	if( ${deleteNotice} == 1){
 		alert('공지사항이 정상적으로 삭제가 완료됐습니다.');
  	} else {
  		alert('공지사항 삭제 실패, 관리자에게 문의하세요');
  	}
- </script>
+ </script>--%>
 <article>
 	<form method = "post" name="frm">
 	<div class="tb">

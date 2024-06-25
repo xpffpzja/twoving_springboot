@@ -1,9 +1,6 @@
 package com.himedia.twoving.dao;
 
-import com.himedia.twoving.dto.AdminVO;
-import com.himedia.twoving.dto.NoticeVO;
-import com.himedia.twoving.dto.Paging;
-import com.himedia.twoving.dto.ProductVO;
+import com.himedia.twoving.dto.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -26,4 +23,14 @@ public interface IAdminDao {
     NoticeVO getNotice(int nseq);
 
     void deleteNotice(int nseq);
+
+    void updateNotice(NoticeVO noticevo);
+
+    List<FaqVO> getFaqList(Paging paging, String key);
+
+    void insertFaq(FaqVO faqvo);
+
+    FaqVO getFaq(int qseq);
+
+    void deleteFaq(int qseq);
 }

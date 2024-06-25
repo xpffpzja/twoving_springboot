@@ -38,4 +38,29 @@
         delete from notice where nseq=#{param1}
     </delete>
 
+    <update id="updateNotice" parameterType="com.himedia.twoving.dto.NoticeVO">
+        update notice set title=#{title}, content=#{content}, noticeyn=#{noticeyn} where nseq=#{nseq}
+    </update>
+
+    <select id="getFaqList" resultType="com.himedia.twoving.dto.FaqVO">
+        select * from faq where subject like concat('%', #{param2}, '%') order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <insert id="insertFaq" parameterType="com.himedia.twoving.dto.FaqVO">
+        insert into faq(inquirylist, subject, content)
+        values (#{inquirylist}, #{subject}, #{content})
+    </insert>
+
+    <select id="getFaq" resultType="com.himedia.twoving.dto.FaqVO">
+        select * from faq where qseq=#{param1}
+    </select>
+
+    <delete id="deleteFaq">
+        delete from faq where qseq=#{param1}
+    </delete>
+
+    <update id="updateFaq" parameterType="com.himedia.twoving.dto.FaqVO">
+        update faq set inquirylist=#{inquirylist}, subject=#{subject}, content=#{content} where qseq=#{qseq}
+    </update>
+
 </mapper>

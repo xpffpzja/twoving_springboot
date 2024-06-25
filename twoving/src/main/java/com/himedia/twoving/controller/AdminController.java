@@ -1,6 +1,7 @@
 package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.AdminVO;
+import com.himedia.twoving.dto.FaqVO;
 import com.himedia.twoving.dto.NoticeVO;
 import com.himedia.twoving.dto.ProductVO;
 import com.himedia.twoving.service.AdminService;
@@ -89,6 +90,7 @@ public class AdminController {
 
     //파일 업로드 (Ajax 2개?) --나중에...
 
+    //notice
     @GetMapping("/adminNoticeList")
     public ModelAndView noticeList(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
@@ -150,5 +152,101 @@ public class AdminController {
         mav.addObject("noticeVO", as.getNotice(nseq));
         mav.setViewName("admin/notice/noticeUpdate");
         return mav;
+    }
+
+    @PostMapping("/adminNoticeUpdate")
+    public String adminNoticeUpdate(@ModelAttribute("dto") @Valid NoticeVO noticevo,
+                                    HttpServletRequest request, BindingResult result, Model model){
+        String url = "admin/notice/noticeUpdate";
+        model.addAttribute("noticeVO", as.getNotice(noticevo.getNseq()));
+        if(result.getFieldError("title") != null){
+            model.addAttribute("message", "제목은 필수 사항입니다.");
+        }else if(result.getFieldError("content") != null){
+            model.addAttribute("message","내용은 필수 사항입니다.");
+        }else{
+            url="redirect:/adminNoticeDetail?nseq="+noticevo.getNseq();
+            as.updateNotice(noticevo);
+        }
+        return url;
+    }
+
+    //faq
+    @GetMapping("/adminFaqList")
+    public ModelAndView adminFaqList(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            mav.setViewName("admin/adminLoginForm");
+        }else{
+            HashMap<String,Object> result = as.getAdminFaqList(request);
+            mav.addObject("faqList", result.get("faqList"));
+            mav.addObject("paging", result.get("paging"));
+            mav.addObject("key", result.get("key"));
+            mav.setViewName("admin/faq/faqList");
+        }
+        return mav;
+    }
+
+    @GetMapping("/adminFaqWriteForm")
+    public String adminFaqWriteForm(HttpServletRequest request, Model model) {
+        return "admin/faq/faqWrite";
+    }
+
+    @PostMapping("/adminFaqWrite")
+    public String adminFaqWrite(@ModelAttribute("dto") @Valid FaqVO faqvo, BindingResult result,
+                                HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
+        as.insertFaq(faqvo);
+        return "redirect:/adminFaqList";
+    }
+
+    @GetMapping("/adminFaqDetail")
+    public ModelAndView adminFaqDetail(@RequestParam("qseq") int qseq, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            mav.setViewName("admin/adminLoginForm");
+        }else {
+            mav.addObject("faqVO", as.getFaq(qseq));
+            mav.setViewName("admin/faq/faqDetail");
+        }
+        return mav;
+    }
+
+    @GetMapping("/adminFaqDelete")
+    public String adminFaqDelete(@RequestParam("qseq") int qseq, HttpServletRequest request){
+        System.out.println("여기옴?");
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            return "redirect:/admin";
+        }else {
+            as.deleteFaq(qseq);
+            return "redirect:/adminFaqList";
+        }
+    }
+
+    @GetMapping("/adminFaqUpdateForm")
+    public ModelAndView adminFaqUpdateForm(@RequestParam("qseq") int qseq){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("faqVO", as.getFaq(qseq));
+        mav.setViewName("admin/faq/faqUpdate");
+        return mav;
+    }
+
+    @PostMapping("/adminFaqUpdate")
+    public String adminFaqUpdate(@ModelAttribute("dto") @Valid FaqVO faqvo,
+                                    HttpServletRequest request, BindingResult result, Model model){
+        String url = "admin/faq/faqUpdate";
+        model.addAttribute("faqVO", as.getFaq(faqvo.getQseq()));
+        if(result.getFieldError("subject") != null){
+            model.addAttribute("message", "제목은 필수 사항입니다.");
+        }else if(result.getFieldError("content") != null){
+            model.addAttribute("message","내용은 필수 사항입니다.");
+        }else{
+            url="redirect:/adminFaqDetail?qseq="+faqvo.getQseq();
+            as.updateFaq(faqvo);
+        }
+        return url;
     }
 }

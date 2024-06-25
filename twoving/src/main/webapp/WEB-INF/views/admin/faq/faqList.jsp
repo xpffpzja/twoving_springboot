@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp" %>
-<%@ include file="/admin/sub_menu.jsp" %>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
 
- <script type="text/javascript"> 
+<%-- <script type="text/javascript">
  	if( ${deleteFaq} == 1){   
 		alert('공지사항이 정상적으로 삭제가 완료됐습니다.');
  	} else {
  		alert('공지사항 삭제 실패, 관리자에게 문의하세요');
  	}
- </script>
+ </script>--%>
 <article>
 	<form method = "post" name="frm">
 	<div class="tb">
@@ -18,7 +18,7 @@
 				FAQ 제목 검색 : &nbsp;<input type="text" name="key" value="${key}">
 				&nbsp;&nbsp;&nbsp;
 				<div>
-				<img src="admin/images/search.png" style="width:30px; cursor: pointer;" onClick="go_search( 'adminFaqList' )">
+				<img src="/admin/images/search.png" style="width:30px; cursor: pointer;" onClick="go_search( 'adminFaqList' )">
 				</div>
 				&nbsp;&nbsp;&nbsp;
 				<input type="button" style="margin-left: auto; background-color: black; color:white; border:none; font-size: 90%; cursor: pointer;" 
@@ -46,11 +46,11 @@
 				</div>
 			</div>
 		</c:forEach>
-		<jsp:include page="/admin/paging/paging.jsp">
-			<jsp:param value="twoving.do?command=adminFaqList" name="address" />
+		<jsp:include page="../paging/paging.jsp">
+			<jsp:param value="adminFaqList" name="address" />
 		</jsp:include>
 	</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp" %>
+<%@ include file="../footer.jsp" %>

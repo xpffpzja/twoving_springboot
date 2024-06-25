@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
 
 <link rel="stylesheet" href="/admin/css/notice.css" />
 
@@ -20,9 +20,9 @@
 					<input type="button" value="수정하기" onClick="go_mod3('${faqVO.qseq}')">
 					<input type="button" value="삭제하기" onClick="deleteFaq('${faqVO.qseq}')">       
 					<input type="button" value="목록으로" 
-							onClick="location.href='twoving.do?command=adminFaqList'">
+							onClick="location.href='adminFaqList'">
 			</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../footer.jsp" %>
