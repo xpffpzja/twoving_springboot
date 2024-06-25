@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.twoving.dao.IProductDao">
+
+    <!--<select id="getKindList" resultType="com.himedia.twoving.dto.ProductVO">
+        SELECT DISTINCT kind FROM product
+    </select>-->
+
+    <select id="getMainList" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where mainyn='y' and kind=0
+    </select>
+
+    <select id="getBestList" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where bestyn='Y' and kind=0 and useyn='Y' order by count asc limit 7
+    </select>
+
+    <select id="getNewList" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where newyn='Y' and kind=0 and useyn='Y'order by pseq desc limit 7
+    </select>
+
+    <select id="getBestList2" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where bestyn='Y'and kind=1 and useyn='Y' order by count asc limit 7
+    </select>
+
+    <select id="getNewList2" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where newyn='Y' and kind=1 and useyn='Y' order by pseq desc limit 7
+    </select>
+
+    <select id="selectKindProduct" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where kind = #{kind}
+    </select>
+
+    <select id="selectSeriesProduct" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where kind = 0 and genre = #{genre}
+    </select>
+
+    <select id="selectMovieProduct" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where kind = 1 and genre = #{genre}
+    </select>
+
+    <select id="getProduct" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where pseq = #{pseq}
+    </select>
+
+    <select id="searchList" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product  where title like concat('%' , #{key} , '%')order by pseq desc
+    </select>
+
+    <update id="Count" parameterType="com.himedia.twoving.dto.ProductVO">
+        update product set count = count+1 where pseq = #{pseq}
+    </update>
+
+
+
+</mapper>

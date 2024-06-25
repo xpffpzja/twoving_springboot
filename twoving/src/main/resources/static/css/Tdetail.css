@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+#form {display:flex; justify-content:center;}
+
+#container {display:flex; width:94%; height:1000px; 
+					/* justify-content:space-between;  */
+					  }
+					
+#background	{width:100%; height:100%; position: fixed;  filter:blur(10px); z-index: -3; }
+/* #background img{width:100%;} */
+					
+				
+#containerA {display:flex; flex-direction:column; 
+/* justify-content: space-around; */   
+width:1300px; 
+height:1000px; 
+z-index: 1;}
+
+#title {width:700px; height:150px; margin-left:25px; 
+			color:white; font-size:350%;  font-weight:bold; line-height:150px;}
+			
+#tagtag{width:800px; height:50px; display:flex;
+text-align: left; 
+/* margin-left:80px;  */ 
+}			
+			
+#tag {width:400px; height:50px;  
+			color:white; font-size:25px; font-weight:bold; text-align:center;  line-height:50px;}
+
+#linkicon {  width:600px; height:150px;  
+				/* margin-left:80px; */ 
+				display:flex; justify-content: space-around; 
+				/* align-items:center; */
+				align-items: flex-start;
+				}
+.a {}
+#b{width:300px; height:130px; background-color:white; 
+		text-align:center; line-height:120px; font-size:200%; font-weight:bold; border-radius:25px;}
+#b a{ text-decoration-line:none; color:black; }		
+		
+#c{width:75px; height:130px;  display:flex; flex-direction:column; 
+	text-align:center; font-size:150%; font-weight:bold;  color:white;}
+#d{width:75px; height:130px;  display:flex; flex-direction:column; 
+	text-align:center; font-size:150%; font-weight:bold;  color:white;}
+
+
+#content{width:800px; height:700px;  color:white; font-weight:bold; font-size: 20px; margin-left:30px; 
+			/* margin-left:100px;  */
+			/* line-height:150px;  */
+			display:flex;}
+
+
+
+#containerB { display:flex; flex-direction:column;  width:500px; height:700px; margin-right:150px; margin-top:20px; z-index: 1; border-radius:20px;}
+#containerB img{ width:500px; height:700px;border-radius:20px;}
+
+
+.share {
+	position: relative;
+	background: black;
+	border: 1px solid black;
+	width:200px;
+	height:50px;
+	margin-left:35px;
+	display:none;
+}
+.share:after, .share:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.share:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: black;
+	border-width: 20px;
+	margin-left: -20px;
+}
+.share:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: black;
+	border-width: 26px;
+	margin-left: -26px;
+}
+
+.shareclick { align-items:center;}
+.shareclick img{ width:200px; height:50px;}
+
+

@@ -16,14 +16,14 @@ header {position:fixed; z-index:10; background-color: black;
 
 #search { display:flex;  margin-right:55px;}
 
-#dbg {display:flex; align-items:center; }
+#dbg {display:flex; align-items:center; z-index:3;}
 #dbg input{ font-size:150%; background:black; color:white; width: 300px; right: 5px; border: 1px solid gray;}
-#dbg a img{  border-radius: 3px; margin-left: 5px; margin-top: 5px;}
+#dbg a img{  border-radius: 3px; margin-left: 5px; margin-top: 5px; }
 
 
 .mypage {  border-radius: 3px; display:flex; width:40px; height:40px;   margin-bottom:5px;}
 
-.profileclick { display:none; position:absolute; top: 52px;  width: 200px; height:150px; 
+.profileclick { display:none; position:absolute; top: 52px;  width: 200px; height:200px;
 		border:1px solid white;  right:55px; text-align:center; background-color : #282828;}
       
 .profileclick div a{ color:white; text-decoration-line:none; font-size:100%;}
