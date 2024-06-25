@@ -59,4 +59,13 @@ public class NoticeService {
         hm.put("paging", paging);
         return hm;
     }
+
+    public void updateCount(int nseq) {
+        noticeDAO.updateCount(nseq);
+    }
+
+    public NoticeVO getOneList(int nseq) {
+        NoticeVO noticeVO = noticeDAO.getOneList(nseq);
+        return noticeVO;
+    }
 }

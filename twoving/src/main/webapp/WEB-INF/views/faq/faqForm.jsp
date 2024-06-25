@@ -5,11 +5,11 @@
 <section>
 	<article>
 		<div class="costitle">
-			<%@ include file="customercenter.jsp" %>
+			<%@ include file="../customercenter/customercenter.jsp" %>
 		</div>
 		
 		<div class="cosmenu_wrapper">
-			<%@ include file="../cosmenu_wrapper.jsp" %>
+			<%@ include file="../customercenter/cosmenu_wrapper.jsp" %>
 		</div>
 		
 		<br>
@@ -23,19 +23,19 @@
 			-->
 			<div class="qes2" style="color:white; font-weight:bold;">
 				<span style="font-weight:bold;">자주 묻는 질문</span>&nbsp;&nbsp;
-				<a href="twoving.do?command=memberCustomerLogin&inquirylist=회원/로그인"><span style="color:white;">로그인이 안돼요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
-				<a href="twoving.do?command=passTicket&inquirylist=이용권/결제"><span style="color:white;">이용권이 있는 계정이 무엇인지 찾고 싶어요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
-				<a href="twoving.do?command=passTicket&inquirylist=재생/오류"><span style="color:white;">시리즈와 영화 콘텐츠 다운로드는 어떻게 하나요?</span></a>
+				<a href="memberCustomerLogin?inquirylist=회원/로그인"><span style="color:white;">로그인이 안돼요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
+				<a href="passTicket?inquirylist=이용권/결제"><span style="color:white;">이용권이 있는 계정이 무엇인지 찾고 싶어요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
+				<a href="passTicket?inquirylist=재생/오류"><span style="color:white;">시리즈와 영화 콘텐츠 다운로드는 어떻게 하나요?</span></a>
 			</div>
 		</div>
 		
 		<div class="inquiryCategory" style="margin-left: 10px;	">
-			<a href="twoving.do?command=faq">전체</a> | &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="twoving.do?command=memberCustomerLogin&inquirylist=회원/로그인">회원/로그인</a> | &nbsp;&nbsp;&nbsp;
-			<a href="twoving.do?command=passTicket&inquirylist=이용권/결제">이용권/결제</a> | &nbsp;&nbsp;&nbsp;
-			<a href="twoving.do?command=loadingError&inquirylist=재생/오류">재생/오류</a> | &nbsp;&nbsp;&nbsp;
-			<a href="twoving.do?command=nonpay&inquirylist=해지/환불">해지/환불</a> | &nbsp;&nbsp;&nbsp;
-			<a href="twoving.do?command=servicerun&inquirylist=서비스/이용">서비스 이용</a>
+			<a href="faq">전체</a> | &nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="memberCustomerLogin?inquirylist=회원/로그인">회원/로그인</a> | &nbsp;&nbsp;&nbsp;
+			<a href="passTicket?inquirylist=이용권/결제">이용권/결제</a> | &nbsp;&nbsp;&nbsp;
+			<a href="loadingError?inquirylist=재생/오류">재생/오류</a> | &nbsp;&nbsp;&nbsp;
+			<a href="nonpay?inquirylist=해지/환불">해지/환불</a> | &nbsp;&nbsp;&nbsp;
+			<a href="servicerun?inquirylist=서비스/이용">서비스 이용</a>
 		</div>
 		
 		<table style="display: flex; flex-direction:column;">
@@ -43,7 +43,7 @@
 				<tr class="fnq-trow" onClick="slideToggleFuc(${loop.index});" id="toggleClass" style="cursor:pointer;">
 					<td class="fnq-tcol" style="color:gray; font-weight:bold; padding: 10px;">${faq.inquirylist}</td>
 					<td class="fnq-tcol" style="color:gray; font-weight:bold; padding: 10px;">${faq.subject}</td>
-					<td class="fnq-tcol"><img src="images/down4.png" width="35" class="toggle-btn" style="border-radius:50%;"></td>
+					<td class="fnq-tcol"><img src="/images/down4.png" width="35" class="toggle-btn" style="border-radius:50%;"></td>
 				</tr>
 				<tr class="faq-content" style="display:none;">
 				 	<td class="faq-tcol" style="display:block; text-align:center;">${faq.subject}</td>
@@ -52,8 +52,8 @@
 			</c:forEach>
 		</table>
 		
-		<jsp:include page="paging/faqPaging.jsp">
-			<jsp:param value="twoving.do?command=faq" name="address"/>
+		<jsp:include page="../paging/faqPaging.jsp">
+			<jsp:param value="faq" name="address"/>
 		</jsp:include>
 	</article>
 </section>

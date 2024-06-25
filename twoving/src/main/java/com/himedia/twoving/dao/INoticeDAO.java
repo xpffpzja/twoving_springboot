@@ -12,4 +12,8 @@ public interface INoticeDAO {
     int getAllCount();
 
     List<NoticeVO> getNoticeList(Paging paging);
+
+    void updateCount(int nseq);
+
+    NoticeVO getOneList(int nseq);
 }

@@ -14,14 +14,14 @@
 <link rel="stylesheet" href="css/genre.css">
     <link rel = "stylesheet" type =  "text/css" href = "/css/section.css"/>
 <!-- <link rel = "stylesheet" type =  "text/css" href = "css/header_footer.css"/> -->
-<script src="script/jquery-3.7.1.min.js"></script>
-<script src="script/faqForm.js"></script>
-<script src="script/jqueryAction.js"></script>
-<script src="script/customerinquiry.js"></script>
-<script src="script/cosmenuWrapper.js"></script>
-<script src="script/slideToggleFuc.js"></script>
-<script src="script/mypage.js"></script>
-<script src="script/Tmain.js"></script>
+<script src="/script/jquery-3.7.1.min.js"></script>
+<script src="/script/faqForm.js"></script>
+<script src="/script/jqueryAction.js"></script>
+<script src="/script/customerinquiry.js"></script>
+<script src="/script/cosmenuWrapper.js"></script>
+<script src="/script/slideToggleFuc.js"></script>
+<script src="/script/mypage.js"></script>
+<script src="/script/Tmain.js"></script>
 
 <script>
 

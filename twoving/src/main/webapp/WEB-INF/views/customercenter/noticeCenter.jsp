@@ -8,7 +8,7 @@
 			<%@ include file="customercenter.jsp" %>
 		</div>
 		<div class="cosmenu_wrapper" style="">
-			<%@ include file="../cosmenu_wrapper.jsp" %>
+			<%@ include file="cosmenu_wrapper.jsp" %>
 		</div>
 		
 		<hr>
@@ -27,13 +27,13 @@
 								<c:choose>
 									<c:when test="${notice.noticeyn eq 'Y'}">
 										<td class="notice_col" style="color:red; font-weight:bold">공지</td>
-										<td class="notice_col"><a style="color:gray;" href="twoving.do?command=noticeDetail&nseq=${notice.nseq}">${notice.title}</a></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
+										<td class="notice_col"><a style="color:gray;" href="noticeDetail?nseq=${notice.nseq}">${notice.title}</a></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 						 				<td class="notice_col"><fmt:formatDate value="${notice.indate}"/></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 										<td class="notice_col">${notice.readcount}</td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 									</c:when>
 									<c:otherwise>
 										<td class="notice_col">${notice.nseq}</td>
-										<td class="notice_col"><a style="color:gray;" href="twoving.do?command=noticeDetail&nseq=${notice.nseq}">${notice.title}</a></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
+										<td class="notice_col"><a style="color:gray;" href="noticeDetail?nseq=${notice.nseq}">${notice.title}</a></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 						 				<td class="notice_col"><fmt:formatDate value="${notice.indate}"/></td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 										<td class="notice_col">${notice.readcount}</td> <!-- 게시물 DB 데이터 끌고 와서 EL 문법으로 저장 -->
 									</c:otherwise>

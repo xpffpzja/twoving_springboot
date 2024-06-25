@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.twoving.dao.IFaqDAO">
+    <select id="getFaqAllCount" resultType="_int">
+        select count(*) from faq
+    </select>
+
+    <select id="getFaqList" resultType="com.himedia.twoving.dto.FaqVO" parameterType="com.himedia.twoving.dto.Paging">
+        select* from faq order by qseq desc limit #{displayRow} offset #{startNum}
+    </select>
+
+    <select id="getMemberCustomerLoginAllCount" resultType="_int">
+        select count(*) from faq where inquirylist=#{param1}
+    </select>
+
+    <select id="getFaqMemberCustomerLoginList" resultType="com.himedia.twoving.dto.FaqVO">
+        select* from faq where inquirylist=#{param2} order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getPassTicketAllCount" resultType="_int">
+        select count(*) from faq where inquirylist=#{param1}
+    </select>
+
+    <select id="getFaqPassTicketList" resultType="com.himedia.twoving.dto.FaqVO">
+        select* from faq where inquirylist=#{param2} order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getLoadingErrorAllCount" resultType="_int">
+        select count(*) from faq where inquirylist=#{param1}
+    </select>
+
+    <select id="getFaqLoadingErrorList" resultType="com.himedia.twoving.dto.FaqVO">
+        select* from faq where inquirylist=#{param2} order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getNonPayAllCount" resultType="_int">
+        select count(*) from faq where inquirylist=#{param1}
+    </select>
+
+    <select id="getFaqNonPayList" resultType="com.himedia.twoving.dto.FaqVO">
+        select* from faq where inquirylist=#{param2} order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getServiceRunAllCount" resultType="_int">
+        select count(*) from faq where inquirylist=#{param1}
+    </select>
+
+    <select id="getFaqServiceRunList" resultType="com.himedia.twoving.dto.FaqVO">
+        select* from faq where inquirylist=#{param2} order by qseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+</mapper>

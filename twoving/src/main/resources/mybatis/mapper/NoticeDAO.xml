@@ -11,4 +11,12 @@
     <select id="getNoticeList" resultType="com.himedia.twoving.dto.NoticeVO" parameterType="com.himedia.twoving.dto.Paging">
         select* from notice order by noticeyn desc, nseq desc limit #{displayRow} offset #{startNum}
     </select>
+
+    <update id="updateCount">
+        update notice set readcount=readcount+1 where nseq=#{param1}
+    </update>
+
+    <select id="getOneList" resultType="com.himedia.twoving.dto.NoticeVO">
+        select* from notice where nseq=#{param1}
+    </select>
 </mapper>

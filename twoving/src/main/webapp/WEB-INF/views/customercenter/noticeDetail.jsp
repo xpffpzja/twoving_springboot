@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="Theader.jsp" %>
+<%@ include file="../main/Theader.jsp" %>
 
 <section>
 	<article>
@@ -8,7 +8,7 @@
 			<%@ include file="customercenter.jsp" %>
 		</div>
 		<div class="cosmenu_wrapper">
-			<%@ include file="../cosmenu_wrapper.jsp" %>
+			<%@ include file="cosmenu_wrapper.jsp" %>
 		</div>
 		
 		<div class="detail_size">
@@ -32,7 +32,7 @@
 		     </div> --%>
 		
 			<div class="detail-button" style="margin-top: 30px;">
-				<input type="button" value="목록으로" onClick="location.href='twoving.do?command=notice'" size="150">
+				<input type="button" value="목록으로" onClick="location.href='/'" size="150">
 			</div>
 		</div>
 		
@@ -40,4 +40,4 @@
 	</div>
 </section>
 
-<%@ include file="Tfooter.jsp" %>
+<%@ include file="../main/Tfooter.jsp" %>

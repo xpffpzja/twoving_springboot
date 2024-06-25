@@ -9,7 +9,7 @@
 		</div>
 		
 		<div class="cosmenu_wrapper">
-			<%@ include file="../cosmenu_wrapper.jsp" %>
+			<%@ include file="cosmenu_wrapper.jsp" %>
 		</div>
 		
 		 <div class="search" style="background-color: rgba(255, 255, 255, 0.2); margin-left: 40px; width: 89%;">

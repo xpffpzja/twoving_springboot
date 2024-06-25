@@ -9,7 +9,7 @@
 		</div>
 		
 		<div class="cosmenu_wrapper">
-			<%@ include file="../cosmenu_wrapper.jsp" %>
+			<%@ include file="cosmenu_wrapper.jsp" %>
 		</div>
 		
 		<div class="defuse">
