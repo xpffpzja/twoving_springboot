@@ -43,4 +43,31 @@ public class NoticeController {
 
         return "customercenter/noticeDetail";
     }
+
+    @GetMapping("/servicepolicy")
+    public ModelAndView noticeServicePolicy(){
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("customercenter/savePolicy");
+
+        return mav;
+    }
+
+    @GetMapping("/customerinquiry")
+    public ModelAndView noticeCustomerInquiry(){
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("customercenter/customerInquiry");
+
+        return mav;
+    }
+
+    @GetMapping("/nexttimedefuse")
+    public ModelAndView noticeNextTimeDefuse(){
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("customercenter/nextTimeDefuse");
+
+        return mav;
+    }
 }

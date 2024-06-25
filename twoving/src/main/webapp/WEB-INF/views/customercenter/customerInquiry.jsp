@@ -15,23 +15,26 @@
 		 <div class="search" style="background-color: rgba(255, 255, 255, 0.2); margin-left: 40px; width: 89%;">
 			<div class="qes2" style="padding : 5px;">
 				<span style="font-weight:bold; color:white;">자주 묻는 질문</span>&nbsp;&nbsp;
-				<a href="twoving.do?command=memberCustomerLogin&inquirylist=회원/로그인"><span>로그인이 안돼요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
-				<a href="twoving.do?command=passTicket&inquirylist=이용권/결제"><span>이용권이 있는 계정이 무엇인지 찾고 싶어요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
-				<a href="twoving.do?command=passTicket&inquirylist=재생/오류"><span>시리즈와 영화 콘텐츠 다운로드는 어떻게 하나요?</span></a>
+				<a href="memberCustomerLogin?inquirylist=회원/로그인"><span>로그인이 안돼요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
+				<a href="passTicket?inquirylist=이용권/결제"><span>이용권이 있는 계정이 무엇인지 찾고 싶어요</span></a> &nbsp;&nbsp; |  &nbsp;&nbsp;
+				<a href="passTicket?inquirylist=재생/오류"><span>시리즈와 영화 콘텐츠 다운로드는 어떻게 하나요?</span></a>
 			</div>
 		</div>
 		
-		 <p style="border-bottom: 1px solid gray; padding: 20px; color:gray; font-weight: bold; font-size:80%;"> *는 필수입력사항입니다. </p>
+		<p style="border-bottom: 1px solid gray; padding: 20px; color:gray; font-weight: bold; font-size:80%;"> *는 필수입력사항입니다. </p>
+		<div class="field" style="color: white; font-weight: bold; font-size: 100%;">
+			${message}
+		</div>
 		<div class="form-layout">
 			<!-- <div class="form-box1"> -->
 				<!-- <div class="form-box1-presemi"> -->
 					<div class="form-box-semi1">
 						<label style="padding: 20px; font-weight: bold; font-size:115%;">기본정보</label>
 					</div>
-					<form action="twoving.do?command=qnaList" method="post" name="inquiryForm" style="" class="inquiryClassForm">
+					<form action="qnaList" method="post" name="inquiryForm" style="" class="inquiryClassForm">
 					<div class="field">
 						<span>이름*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="text" value="${loginUser.name}" name="name" style="color:white; font-weight:bold; padding:15px;" readonly>
+						<input type="text" value="김동민" name="name" style="color:white; font-weight:bold; padding:15px;" readonly>
 					</div>
 					<div class="field">
 						<span>이메일*</span>&nbsp;&nbsp;&nbsp;
@@ -68,15 +71,15 @@
 				<br>
 				<div class="field">
 					<span>문의종류*</span>
-						<input type="radio" name="radio1" class="rd" value="사이트 이용"><label>사이트 이용</label>
-						<input type="radio" name="radio1" class="rd" value="회원/로그인"><label>회원/로그인</label>
-						<input type="radio" name="radio1" class="rd" value="환불/해지 신청"><label>환불/해지 신청</label>
-						<input type="radio" name="radio1" class="rd" value="이용권 결제"><label>이용권 결제</label>
-						<input type="radio" name="radio1" class="rd" value="장애 신고"><label>장애신고</label>
-						<input type="radio" name="radio1" class="rd" value="콘텐츠/채널"><label>콘텐츠/채널</label>
-						<input type="radio" name="radio1" class="rd" value="이벤트"><label>이벤트</label>
-						<input type="radio" name="radio1" class="rd" value="서비스 제한"><label>서비스 제한</label>
-						<input type="radio" name="radio1" class="rd" value="기타"><label>기타</label>
+						<input type="radio" name="inquirylist" class="rd" value="사이트 이용"><label>사이트 이용</label>
+						<input type="radio" name="inquirylist" class="rd" value="회원/로그인"><label>회원/로그인</label>
+						<input type="radio" name="inquirylist" class="rd" value="환불/해지 신청"><label>환불/해지 신청</label>
+						<input type="radio" name="inquirylist" class="rd" value="이용권 결제"><label>이용권 결제</label>
+						<input type="radio" name="inquirylist" class="rd" value="장애 신고"><label>장애신고</label>
+						<input type="radio" name="inquirylist" class="rd" value="콘텐츠/채널"><label>콘텐츠/채널</label>
+						<input type="radio" name="inquirylist" class="rd" value="이벤트"><label>이벤트</label>
+						<input type="radio" name="inquirylist" class="rd" value="서비스 제한"><label>서비스 제한</label>
+						<input type="radio" name="inquirylist" class="rd" value="기타"><label>기타</label>
 				</div>
 				<div class="field">
 						<span>디바이스</span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -95,7 +98,7 @@
 				
 				<div class="field">
 						<span>이용시간</span>&nbsp;&nbsp;&nbsp;&nbsp;
-						<select name="time1" id="timeList">
+						<select name="runtime1" id="timeList">
 							<option selected>선택</option>
 							<option value="00:00">00:00</option>
 							<option value="00:30">00:30</option>
@@ -147,7 +150,7 @@
 							<option value="23:30">23:30</option>
 						</select>
 						<span> ~ </span>
-						<select name="time2" id="timeList">
+						<select name="runtime2" id="timeList">
 							<option selected>선택</option>
 							<option value="00:00">00:00</option>
 							<option value="00:30">00:30</option>
@@ -224,7 +227,7 @@
 				<div class="field" style="border-bottom: 1px solid black;">
 					<span>문의 내용*</span>&nbsp;&nbsp;&nbsp;&nbsp;
 					<textarea rows="10" cols="100" placeholder="문의 내용을 입력해주세요." name="inquirycontent"></textarea>
-				</div>	
+				</div>
 				<p style="border-bottom: 1px solid gray; padding: 15px; color:gray;">※ 빠른 검토를 위해 영어 2000자, 한글 1000자 내외로 입력하세요.</p>
 				
 				
@@ -240,11 +243,11 @@
 						</p>	
 					</div>
 					<div class="bott-img-check-box" style="display:flex; padding: 8px; cursor:pointer;">
-						<img src="images/checkblack.png" class="bott-check-image" id="checkBlack" style="width:30px; border-radius:50%;">&nbsp;&nbsp;<span>동의합니다.</span>
-						<img src="images/checkcolor.jpeg" class="bott-check-image" id="checkColor" style="display:none; width:30px; border-radius:50%;">&nbsp;&nbsp;<span style="display:none;">동의합니다.</span>
+						<img src="/images/checkblack.png" class="bott-check-image" id="checkBlack" style="width:30px; border-radius:50%;">&nbsp;&nbsp;<span>동의합니다.</span>
+						<img src="/images/checkcolor.jpeg" class="bott-check-image" id="checkColor" style="display:none; width:30px; border-radius:50%;">&nbsp;&nbsp;<span style="display:none;">동의합니다.</span>
 					</div>
 				</div>
-				<input type="submit" value="문의 남기기" class="buttons" id="submitButton" onClick="return inquiryCheck();">	
+				<input type="submit" value="문의 남기기" class="buttons" id="submitButton" onClick="return inquiryCheck()">
 			</form>
 		</div>
 	</article>

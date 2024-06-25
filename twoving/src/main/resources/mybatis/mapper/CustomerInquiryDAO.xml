@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.twoving.dao.ICustomerInquiryDAO">
+    <insert id="cisInsert" parameterType="com.himedia.twoving.dto.CustomerInquiryVO">
+        insert into customerinquiry(name, email, phone, inquirylist, devicephone, devicemodelname, runenvironment, runplace, runtime1, runtime2, runcontent, inquirytitle, inquirycontent, reply)  values(#{name}, #{email}, #{phone}, #{inquirylist}, #{devicephone}, #{devicemodelname}, #{runenvironment}, #{runplace}, #{runtime1}, #{runtime2}, #{runcontent}, #{inquirytitle}, #{inquirycontent}, #{reply})
+    </insert>
+</mapper>

@@ -8,7 +8,7 @@
 </head>
 <script>
 	window.alert("성공적으로 고객문의가 완료되었습니다.");
-	location.href='twoving.do?command=notice';
+	location.href='/';
 </script>
 <body>
 
