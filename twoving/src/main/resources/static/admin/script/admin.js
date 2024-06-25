@@ -1,7 +1,7 @@
 function loginCheck(){
-	if( document.loginForm.userid.value == "" ){
+	if( document.loginForm.adminid.value == "" ){
 		alert("아이디를 입력하세요");
-		document.loginForm.userid.focus();
+		document.loginForm.adminid.focus();
 		return false;
 	}else if(document.loginForm.pwd.value == ""){
 		alert("패스워드를 입력하세요");
@@ -15,7 +15,7 @@ function loginCheck(){
 
 
 function go_search( command ){
-	var url = "twoving.do?command=" + command + "&page=1";
+	var url = command + "?page=1";
 	document.frm.action = url;
 	document.frm.submit();
 }
@@ -40,7 +40,7 @@ function go_detail4( ciseq ){
 function deleteProduct(pseq){
 	var ans = confirm("정말로 삭제 할까요?");
 	if(ans){
-		var url = "twoving.do?command=adminProductDelete&pseq=" + pseq;
+		var url = "adminProductDelete?pseq=" + pseq;
 		location.href=url;
 	}
 }
@@ -48,7 +48,7 @@ function deleteProduct(pseq){
 function deleteNotice(nseq){
 	var ans = confirm("정말로 삭제 할까요?");
 	if(ans){
-		var url = "twoving.do?command=adminNoticeDelete&nseq=" + nseq;
+		var url = "adminNoticeDelete?nseq=" + nseq;
 		location.href=url;
 	}
 }
@@ -56,21 +56,21 @@ function deleteNotice(nseq){
 function deleteFaq(qseq){
 	var ans = confirm("정말로 삭제 할까요?");
 	if(ans){
-		var url = "twoving.do?command=adminFaqDelete&qseq=" + qseq;
+		var url = "adminFaqDelete?qseq=" + qseq;
 		location.href=url;
 	}
 }
 
 function go_wrt(){
-	location.href="twoving.do?command=adminProductWriteForm";
+	location.href="adminProductWriteForm";
 }
 
 function go_wrt2(){
-	location.href="twoving.do?command=adminNoticeWriteForm";
+	location.href="adminNoticeWriteForm";
 }
 
 function go_wrt3(){
-	location.href="twoving.do?command=adminFaqWriteForm";
+	location.href="adminFaqWriteForm";
 }
 
 function cals(){
@@ -112,7 +112,7 @@ function go_save(){
 	} else if (theForm.image2.value == "") {
 		alert('상품이미지(디테일)를 입력하세요.');		theForm.image2.focus();	
 	} else{
-		theForm.action = "twoving.do?command=adminProductWrite";
+		theForm.action = "adminProductWrite";
 		theForm.submit();
 	}
 }
@@ -131,7 +131,7 @@ function go_save2(){
 	} else if (theForm.noticeyn.value == "") {
 		alert('공지 유무를 선택하세요.'); 			theForm.noticeyn.focus();
 	} else{
-		theForm.action = "twoving.do?command=adminNoticeWrite";
+		theForm.action = "adminNoticeWrite";
 		theForm.submit();
 	}
 }
@@ -145,7 +145,7 @@ function go_save3(){
 	} else if (theForm.content.value == "") {
 		alert('내용을 입력하세요.'); 			theForm.content.focus();
 	} else{
-		theForm.action = "twoving.do?command=adminFaqWrite";
+		theForm.action = "adminFaqWrite";
 		theForm.submit();
 	}
 }
@@ -153,17 +153,17 @@ function go_save3(){
 
 
 function go_mod( pseq ){
-	var url = "twoving.do?command=adminProductUpdateForm&pseq=" + pseq;
+	var url = "adminProductUpdateForm?pseq=" + pseq;
 	location.href=url;
 }
 
 function go_mod2( nseq ){
-	var url = "twoving.do?command=adminNoticeUpdateForm&nseq=" + nseq;
+	var url = "adminNoticeUpdateForm?nseq=" + nseq;
 	location.href=url;
 }
 
 function go_mod3( qseq ){
-	var url = "twoving.do?command=adminFaqUpdateForm&qseq=" + qseq;
+	var url = "adminFaqUpdateForm?qseq=" + qseq;
 	location.href=url;
 }
 
@@ -190,7 +190,7 @@ function go_update(){
 	} else if (theForm.content.value == "") {
 		alert('상세설명을 입력하세요.'); 		theForm.content.focus();
 	} else{
-		theForm.action = "twoving.do?command=adminProductUpdate";
+		theForm.action = "adminProductUpdate";
 		theForm.submit();
 	}
 }
@@ -204,7 +204,7 @@ function go_update2(){
 	} else if (theForm.noticeyn.value == "") {
 		alert('공지 유무를 선택하세요.'); 			theForm.noticeyn.focus();
 	} else{
-		theForm.action = "twoving.do?command=adminNoticeUpdate";
+		theForm.action = "adminNoticeUpdate";
 		theForm.submit();
 	}
 }
@@ -232,7 +232,7 @@ function go_update3(){
 	} else if (theForm.content.value == "") {
 		alert('상세설명을 입력하세요.'); 		theForm.content.focus();
 	} else {
-		theForm.action = "twoving.do?command=adminFaqUpdate";
+		theForm.action = "adminFaqUpdate";
 		theForm.submit();
 	}
 }
@@ -263,7 +263,7 @@ function go_rep(){
 		alert("답변내용을 입력하세요");
 		document.inquiryViewFrm.reply.focus();
 	}else{
-		document.inquiryViewFrm.action = "twoving.do?command=adminCustomerInquiryReplyUpdateAction";
+		document.inquiryViewFrm.action = "adminCustomerInquiryReplyUpdateAction";
 		document.inquiryViewFrm.submit();
 	}
 }

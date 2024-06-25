@@ -14,15 +14,16 @@
       <h1 style="color : white;">Admin Login</h1>
       <form method="post" action="adminlogin" name="loginForm">
           <div class="int-area">
-              <input type="text" style="border : 3px solid white; color : white;" name="userid" id="id" placeholder="UserId">
+              <input type="text" style="border : 3px solid white; color : white;" name="adminid" id="id" placeholder="UserId">
           </div>
           <div class="int-area">
               <input type="password" style="border : 3px solid white; color : white;" name="pwd" id="pw" placeholder="Password" >
           </div>
+          <br>
           <div>
               <div style="font-size:120%; color:red;">${message} </div>
           </div>
-          <div style="height:30px;"></div>
+          <%--<div style="height:30px;"></div>--%>
           <div class="btn-area">
               <button id="btn" type="submit" onClick="return loginCheck()" value="LOGIN">로그인</button>
           </div>

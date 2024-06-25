@@ -4,5 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.himedia.twoving.dao.IAdminDao">
+    <select id="getAdmin" resultType="com.himedia.twoving.dto.AdminVO">
+        select * from admins where adminid=#{param1}
+    </select>
+
+    <select id="getAllCount" resultType="_int">
+        select count(*) from ${param1} where ${param2} like concat('%', #{param3}, '%')
+    </select>
+
+    <select id="getProductList" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where title like concat('%', #{param2}, '%') order by pseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <insert id="insertProduct" parameterType="com.himedia.twoving.dto.ProductVO">
+        insert into product(kind, genre, mainyn, bestyn, newyn, useyn, title, content, age, count, year, time, image, savefilename, image2, savefilename2)
+        values (#{kind}, #{genre}, #{mainyn}, #{bestyn}, #{newyn}, #{useyn}, #{title}, #{content},#{age},#{count},#{year},#{time},#{image},#{savefilename},#{image2},#{savefilename2})
+    </insert>
+
+    <select id="getNoticeList" resultType="com.himedia.twoving.dto.NoticeVO">
+        select * from notice where title like concat('%', #{param2}, '%') order by noticeyn desc, nseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <insert id="insertNotice" parameterType="com.himedia.twoving.dto.NoticeVO">
+        insert into notice(userid, title, content, noticeyn)
+        values (#{userid}, #{title}, #{content}, #{noticeyn})
+    </insert>
+
+    <select id="getNotice" resultType="com.himedia.twoving.dto.NoticeVO">
+        select * from notice where nseq=#{param1}
+    </select>
+
+    <delete id="deleteNotice">
+        delete from notice where nseq=#{param1}
+    </delete>
 
 </mapper>
