@@ -4,5 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.himedia.twoving.dao.IPaymentDAO">
+    <select id="getAllCount" resultType="_int">
+        select count(*) from payment where userid=#{param1}
+    </select>
 
+    <select id="getSelectList" resultType="com.himedia.twoving.dto.PaymentVO">
+        select* from payment where subscribeyn='Y'
+    </select>
+
+    <select id="getAllList" resultType="com.himedia.twoving.dto.PaymentVO">
+        select* from payment where userid=#{param2} order by pmseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
 </mapper>

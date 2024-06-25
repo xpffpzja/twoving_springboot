@@ -55,18 +55,18 @@
         <div class="box22">
             <div class="box22-1"><img src="/images/logo.png" width="120px" height="120px"/></div>
             <div class="box22-2"><span>이름</span>&nbsp;&nbsp; ${loginUser.name} <br>
-                <a><img src="member/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
+                <a><img src="/member/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
                 <c:choose>
-                    <c:when test="${passTicketVO.ptseq == 1}">
+                    <c:when test="${memberVO.ptseq == 1}">
                         &nbsp;광고형 스탠다드
                     </c:when>
-                    <c:when test="${passTicketVO.ptseq == 2}">
+                    <c:when test="${memberVO.ptseq == 2}">
                         &nbsp;베이직
                     </c:when>
-                    <c:when test="${passTicketVO.ptseq == 3}">
+                    <c:when test="${memberVO.ptseq == 3}">
                         &nbsp;스탠다드
                     </c:when>
-                    <c:when test="${passTicketVO.ptseq == 4}">
+                    <c:when test="${memberVO.ptseq == 4}">
                         &nbsp;프리미엄
                     </c:when>
                     <c:otherwise>
@@ -75,7 +75,7 @@
                 </c:choose>
                 <a> <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/></a></p></div>
 
-            <div class="box22-3" onClick="location.href='updateMemberForm'"><a><img src="member/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
+            <div class="box22-3" onClick="location.href='updateMemberForm'"><a><img src="/images/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
 
         </div>
         <div class="box33">
@@ -88,7 +88,7 @@
 
 
             <div class="box44-3" onClick="location.href='passTicketList'">이용권 &nbsp;</div>
-            <div class="box44-2" onClick="location.href='steamedList&kind=0'">찜 &nbsp;</div>
+            <div class="box44-2" onClick="location.href='steamedList?kind=0'">찜 &nbsp;</div>
             <div class="box44-4" onclick="location.href='customerInquiryListMypage'">문의 내역 &nbsp;</div>
 
 
