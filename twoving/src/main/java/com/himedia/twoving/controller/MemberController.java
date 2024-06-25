@@ -42,6 +42,36 @@ public class MemberController {
         return "mypage/mypage";
     }
 
+    @GetMapping("/updateMemberForm")
+    public String updateMemberForm() {
+        return "mypage/updateMember";
+    }
+
+    @PostMapping("/updateMember")
+    public String updateMember(@ModelAttribute("dto") @Valid MemberVO memberdto, BindingResult result, Model model,
+                              HttpServletRequest request){
+        String url = "mypage/updateMember";
+        if (result.getFieldError("pwd")!=null) {
+            model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
+        } else if (result.getFieldError("name")!=null) {
+            model.addAttribute("message", result.getFieldError("name").getDefaultMessage());
+        } else if (result.getFieldError("phone")!=null) {
+            model.addAttribute("message", result.getFieldError("phone").getDefaultMessage());
+        } else if (result.getFieldError("email")!=null) {
+            model.addAttribute("message", result.getFieldError("email").getDefaultMessage());
+//
+
+        }else {
+            ms.updateMember(memberdto);
+            HttpSession session = request.getSession();
+            session.setAttribute("loginUser", memberdto);
+            url="redirect:/mypage";
+        }
+
+        return url;
+    }
+
+
 
     @PostMapping("/login")
     public String login(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
@@ -60,6 +90,7 @@ public class MemberController {
             else if( mvo.getPwd().equals( membervo.getPwd() ) ){
                 HttpSession session = request.getSession();
                 session.setAttribute("loginUser", mvo);
+                model.addAttribute("message","회원정보 수정이 완료되었습니다.");
                 url = "redirect:/mypage";
             }
         }

@@ -13,4 +13,9 @@
         insert into member( userid, pwd, name, email) values(#{userid},#{pwd},#{name},#{email})
     </insert>
 
+    <update id="updateMember" parameterType="com.himedia.twoving.dto.MemberVO">
+        update member set name=#{name}, pwd=#{pwd}, email=#{email}, phone=#{phone}
+        where userid=#{userid}
+    </update>
+
 </mapper>

@@ -19,4 +19,12 @@ public class MemberService {
     public void insertMember(MemberVO mvo) {
         mdao.insertMember(mvo);
     }
+
+    public void updateMember(MemberVO memberdto) {
+        mdao.updateMember(memberdto);
+    }
+
+//    public void updateMember(MemberVO memberdto) {
+//        mdao.updateMember(memberdto);
+//    }
 }

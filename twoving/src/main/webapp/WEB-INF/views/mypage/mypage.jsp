@@ -106,11 +106,12 @@ $(function(){
       <div class="box33-1">
          이용권을 구독하고 <a>twoving</a> 등 인기 TV프로그램과 다양한 영화를 자유롭게 시청하세요!
       </div>
+          <div style="color: white">${message}</div>
       </div>
       
       <div class="box44">
            
-      <div class="box44-2" onClick="location.href='steamedList&kind=0'">찜 &nbsp;</div>
+      <div class="box44-2" onClick="location.href='steamedList?kind=0'">찜 &nbsp;</div>
       <div class="box44-3" onClick="location.href='passTicketList'">이용권/캐시 내역 &nbsp;</div>
       <div class="box44-4" onclick="location.href='customerInquiryListMypage'">문의 내역 &nbsp;</div>
     
