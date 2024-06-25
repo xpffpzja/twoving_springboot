@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.twoving.dao.INoticeDAO">
+    <select id="getAllCount" resultType="_int">
+        select count(*) from notice
+    </select>
+
+    <select id="getNoticeList" resultType="com.himedia.twoving.dto.NoticeVO" parameterType="com.himedia.twoving.dto.Paging">
+        select* from notice order by noticeyn desc, nseq desc limit #{displayRow} offset #{startNum}
+    </select>
+</mapper>

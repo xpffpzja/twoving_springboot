@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+
+.clear { width:100%; margin-left:55px; }
+#footer{}
+#admintag { }
+#admintag a{color:white; font-weight:bold; text-decoration-line:none; font-size:20px; }
+#copy {color:white; }
