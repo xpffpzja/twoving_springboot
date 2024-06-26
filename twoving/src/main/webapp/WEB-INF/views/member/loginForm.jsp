@@ -60,9 +60,9 @@
          <!-- <input type="submit" class="btn1" value="LOGIN" /> -->
          
          <div class="btn">
-            <input type="button" onClick="'findIdForm'" class="btn2" value="아이디 찾기 &nbsp;&nbsp;" />
+            <input type="button" onClick="location.href='findIdForm'" class="btn2" value="아이디 찾기 &nbsp;&nbsp;" />
             <p>|</p>
-            <input type="button"  onClick="'findPwdForm'" class="btn3" value="&nbsp;&nbsp; 비밀번호 찾기" />
+            <input type="button"  onClick="location.href='findPwdForm'" class="btn3" value="&nbsp;&nbsp; 비밀번호 찾기" />
          </div>
          <div class="qs">
          <p>아직 계정이 없으신가요? &nbsp;&nbsp;&nbsp;</p><p style="cursor: pointer; font-weight: bold" onClick="location.href='joinForm'">회원가입하기</p>

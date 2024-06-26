@@ -19,8 +19,6 @@
 <link rel="stylesheet" type="text/css" href="css/mypage.css">
 
 
-
-<title>Insert title here</title>
 <!-- <script type="text/JavaScript">
 $(function(){
    $('.box2-1').hover(function(){

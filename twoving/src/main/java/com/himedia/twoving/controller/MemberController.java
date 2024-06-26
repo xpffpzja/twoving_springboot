@@ -1,6 +1,7 @@
 package com.himedia.twoving.controller;
 
 import com.google.gson.Gson;
+import com.himedia.twoving.dao.IMemberDao;
 import com.himedia.twoving.dto.OAuthToken;
 import com.himedia.twoving.dto.KakaoProfile;
 import com.himedia.twoving.dto.MemberVO;
@@ -92,9 +93,34 @@ public class MemberController {
                 session.setAttribute("loginUser", mvo);
                 model.addAttribute("message","회원정보 수정이 완료되었습니다.");
                 url = "redirect:/mypage";
+                model.addAttribute("showAlert", true);
             }
         }
         return url;
+    }
+
+    @GetMapping("/deleteMemberForm")
+    public String deleteMemberForm(){
+        return "mypage/deleteMember";
+    }
+
+    @GetMapping("/deleteMember")
+    public String deleteMember(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        MemberVO mdto = (MemberVO)session.getAttribute("loginUser");
+        ms.deleteMember(mdto.getUserid());
+        model.addAttribute("message", "회원탈퇴가 완료되었습니다.");
+        return "member/loginForm";
+    }
+
+    @GetMapping("/findIdForm")
+    public String findIdForm() {
+        return "mypage/findId";
+    }
+
+    @GetMapping("/findPwdForm")
+    public String findPwdForm() {
+        return "mypage/findPwd";
     }
 
 

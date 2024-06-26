@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>ID 체크 확인</h1>
-<form method="post" name="idCheckForm" action="twoving.do?command=pwdIdcheckForm">
+<form method="post" name="idCheckForm" action="pwdIdcheckForm">
 	사용자 아이디 : <input type="text" name="userid" value="${userid}">
 	<input type="submit" value="검색"><br><br><br>
 </form>

@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/findpwd.css">
+<link rel="stylesheet" href="/css/findpwd.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="script/mypage.js"></script>
+<script src="/script/mypage.js"></script>
 </head>
 <body>
 <form action="SendEmailServlet" method="post" name="findPwd">
-	  <input type="button"	 class="logo" onclick="location.href='twoving.do?command=index'" value="TWOVING" style="cursor: pointer;" />
+	  <input type="button"	 class="logo" onclick="location.href='index'" value="TWOVING" style="cursor: pointer;" />
 	  <h1>비밀번호 찾기</h1>
 	  <div class="all">
 		  <div class="text">

@@ -10,4 +10,6 @@ public interface IMemberDao {
     void insertMember(MemberVO mvo);
 
     void updateMember(MemberVO memberdto);
+
+    void deleteMember(String userid);
 }

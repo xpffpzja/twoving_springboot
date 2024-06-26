@@ -5,13 +5,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/delete.css">
-<script src="script/member.js"></script>
+<link rel="stylesheet" href="/css/delete.css">
+	<script type="text/javascript">
+		function withDraw(){
+			var ans= confirm("정말로 탈퇴하시겠습니까?");
+			if(ans){
+				location.href="deleteMember";
+			}
+
+		}
+	</script>
+<%--<script src="script/member.js"></script>--%>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<input type="button" style="cursor: pointer;" class="logo" onclick="location.href='twoving.do?command=tMain'" value="TWOVING" />
+<input type="button" style="cursor: pointer;" class="logo" onclick="location.href='tMain'" value="TWOVING" />
   <h1>회원탈퇴</h1>
   <form>
   <div class="text1"> 탈퇴를 원하시면, 아래 사항을 반드시 확인해주세요.</div>
@@ -59,8 +68,8 @@
 				<label for="agree" id="agree2" style=" color:gray; font-weight: bold;"> &nbsp;정기 결제 해지와 이용중이던 상품 포기에 동의합니다.</label>
 			</div> 
   <div class="btn">
-  <input type="button"  class="btn1" value="확인" onClick="withdrawal()" style="cursor: pointer;" />
-  <input type="button"  class="btn2" value="취소" onClick="location.href='twoving.do?command=updateMemberForm'" style="cursor: pointer;"/>
+  <input type="button"  class="btn1" value="확인" onClick="withDraw();"  style="cursor: pointer;" />
+  <input type="button"  class="btn2" value="취소" onClick="location.href='updateMemberForm'" style="cursor: pointer;"/>
   </div>
   </form>
 </body>

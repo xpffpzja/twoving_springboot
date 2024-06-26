@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="css/findid.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="script/mypage.js"></script>
+<script src="/script/mypage.js"></script>
 </head>
 <body>
-<form action="twoving.do?command=findId" method="post" name="findId">
-  <input type="button"	 class="logo" onclick="location.href='twoving.do?command=index'" value="TWOVING" style="cursor: pointer;" />
+<form action="findId" method="post" name="findId">
+  <input type="button"	 class="logo" onclick="location.href='index'" value="TWOVING" style="cursor: pointer;" />
   <h1>아이디 찾기</h1>
   <div class="all">
 	  <div class="text" style="width:600px;">

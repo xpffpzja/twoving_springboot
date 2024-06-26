@@ -20,7 +20,7 @@ function idcheck2(){
 		document.findPwd.userid.focus();
 		return;
 	}
-	var url = "twoving.do?command=pwdIdcheckForm&userid=" + document.findPwd.userid.value;
+	var url = "pwdIdcheckForm?userid=" + document.findPwd.userid.value;
 	var opt ="toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no";
 	
 	window.open(url,"idcheck",opt);
