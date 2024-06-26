@@ -1,6 +1,9 @@
 package com.himedia.twoving.controller;
 
+import com.himedia.twoving.dao.IsteamedDao;
+import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.dto.ProductVO;
+import com.himedia.twoving.dto.steamedVO;
 import com.himedia.twoving.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -21,11 +24,18 @@ public class ProductController {
   @Autowired
     ProductService ps;
 
+  @Autowired
+  IsteamedDao sdao;
+
 
   @GetMapping("/Tmain")
-    public ModelAndView Tmain(Model model) {
+    public ModelAndView Tmain(HttpServletRequest request, Model model) {
 
       ModelAndView mav = new ModelAndView();
+
+      HttpSession session = request.getSession();
+      MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+      session.setAttribute("loginUser", loginUser);
 
       HashMap<String, Object> result = ps.getBestNewList();
       ArrayList<Integer> list = ps.getKindList();
@@ -100,11 +110,19 @@ public class ProductController {
   @GetMapping("/Tdetail")
   public ModelAndView Tdetail(@RequestParam("pseq") int pseq,
                               HttpServletRequest request, Model model){
+
+    HttpSession session = request.getSession();
+    MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+
     ModelAndView mav = new ModelAndView();
     ArrayList<Integer> kindList = ps.getKindList();
 
+    ArrayList<steamedVO> list = sdao.steamedview(loginUser.getUserid(), pseq);
+
     mav.addObject("productVO", ps.getProduct(pseq));
     mav.addObject("kindList", kindList);
+    mav.addObject("ccc",list);
+
 
     if ("view".equals(request.getParameter("action"))){
       ps.Count(pseq);
