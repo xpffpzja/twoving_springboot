@@ -19,4 +19,12 @@
     <select id="getPayment" resultType="com.himedia.twoving.dto.PaymentVO">
         select* from payment where productname=#{param1} and subscribeyn='Y'
     </select>
+
+    <update id="passTicketUpdate1">
+        update payment set subscribeyn='N' where pmseq=#{param1}
+    </update>
+
+    <insert id="passTicketInsert1" parameterType="com.himedia.twoving.dto.PaymentVO">
+        insert into payment(userid, subscribeyn, productname, paymentprice) values(#{userid},#{subscribeyn},#{productname},#{paymentprice})
+    </insert>
 </mapper>

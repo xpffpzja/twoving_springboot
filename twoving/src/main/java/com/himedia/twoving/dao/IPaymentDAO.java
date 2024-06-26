@@ -16,4 +16,8 @@ public interface IPaymentDAO {
     ArrayList<PaymentVO> getAllList(Paging paging, String userid);
 
     PaymentVO getPayment(String productname);
+
+    void passTicketUpdate1(int pmseq);
+
+    void passTicketInsert1(PaymentVO paymentVO);
 }

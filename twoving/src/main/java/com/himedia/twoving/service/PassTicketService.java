@@ -33,4 +33,19 @@ public class PassTicketService {
 
         return hm;
     }
+
+    public void passTicketUpdate1(int pmseq) {
+        paymentDAO.passTicketUpdate1(pmseq);
+    }
+
+    public void passTicketInsert1(String userid, String subscribeyn, String productname, String paymentprice) {
+        PaymentVO paymentVO = new PaymentVO();
+
+        paymentVO.setUserid(userid);
+        paymentVO.setSubscribeyn(subscribeyn);
+        paymentVO.setProductname(productname);
+        paymentVO.setPaymentprice(paymentprice);
+
+        paymentDAO.passTicketInsert1(paymentVO);
+    }
 }
