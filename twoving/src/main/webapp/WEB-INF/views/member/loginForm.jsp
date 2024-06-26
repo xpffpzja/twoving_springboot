@@ -20,7 +20,7 @@
     }
     %>
    <article style="">
-      <form method="post" action="login" name="loginForm">
+      <form method="Post" action="login" name="loginForm">
             
             <h2>TWOVING ID 로그인</h2>
             

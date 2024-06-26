@@ -27,7 +27,7 @@ public class MemberController {
     @Autowired
     MemberService ms;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index() {
         return "member/indexForm";
     }
@@ -38,9 +38,19 @@ public class MemberController {
     }
 
 
+
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/";
+    }
+
+
     @GetMapping("/mypage")
     public String mypage() {
-        return "mypage/mypage";
+        return "product/steamedlist";
     }
 
     @GetMapping("/updateMemberForm")
@@ -50,7 +60,7 @@ public class MemberController {
 
     @PostMapping("/updateMember")
     public String updateMember(@ModelAttribute("dto") @Valid MemberVO memberdto, BindingResult result, Model model,
-                              HttpServletRequest request){
+                               HttpServletRequest request){
         String url = "mypage/updateMember";
         if (result.getFieldError("pwd")!=null) {
             model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
@@ -92,8 +102,9 @@ public class MemberController {
                 HttpSession session = request.getSession();
                 session.setAttribute("loginUser", mvo);
                 model.addAttribute("message","회원정보 수정이 완료되었습니다.");
-                url = "redirect:/Tmain";
+
                 model.addAttribute("showAlert", true);
+                url = "redirect:/Tmain";
             }
         }
         return url;
@@ -231,10 +242,10 @@ public class MemberController {
         return "redirect:/mypage";
 
     }
-    
-    
-    
-    
+
+
+
+
     @GetMapping("/joinForm")
     public String joinForm()  {
         return "member/joinForm";
@@ -265,7 +276,7 @@ public class MemberController {
             model.addAttribute("message", result.getFieldError("name").getDefaultMessage());
         else if( result.getFieldError("email") != null)
             model.addAttribute("message", result.getFieldError("email").getDefaultMessage());
-       else {
+        else {
             url = "member/loginForm";
             model.addAttribute("message", "회원가입이 완료되었습니다. 로그인하세요");
             ms.insertMember( membervo );
