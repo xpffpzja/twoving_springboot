@@ -35,4 +35,32 @@ public class PassTicketController {
         }
         return mav;
     }
+
+    @GetMapping("/insertPassTicketPopup")
+    public ModelAndView insertPassTicketPopup(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("mypage/updateDefuseCheck2");
+
+        return mav;
+    }
+
+    @GetMapping("/allPassTicketView")
+    public ModelAndView allPassTicketView(@RequestParam("productname") String productname,HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView mav = new ModelAndView();
+        MemberVO memberVO =(MemberVO)session.getAttribute("loginUser");
+
+        if(memberVO == null){
+            mav.setViewName("redirect:/loginForm");
+        }else{
+            HashMap<String, Object> hm = passTicketService.getPaymentAndSelectMemberPass(productname, memberVO.getUserid(), request);
+            mav.addObject("paymentVO", hm.get("paymentVO"));
+            mav.addObject("memberVO", hm.get("memberVO"));
+            mav.setViewName("mypage/allPassTicketViewCheck");
+        }
+        return mav;
+    }
+
 }

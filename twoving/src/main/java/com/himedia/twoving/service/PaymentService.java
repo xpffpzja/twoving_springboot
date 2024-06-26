@@ -44,7 +44,7 @@ public class PaymentService {
             page = (Integer)session.getAttribute("page");
 
         } else {
-                session.removeAttribute("page");
+            session.removeAttribute("page");
         }
 
         String key = "";
@@ -78,6 +78,62 @@ public class PaymentService {
         hm.put("memberVO", memberVO1);
         hm.put("passTicket2List", passTicket2List);
         hm.put("paging", paging);
+
+        return hm;
+    }
+
+    public HashMap<String, Object> passTicketListMyPageUpdate(HttpServletRequest request) {
+        HashMap<String, Object> hm = new HashMap<>();
+
+
+        HttpSession session = request.getSession();
+
+        MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
+
+        int page = 1;
+
+        if(request.getParameter("page") != null) {
+
+            page =  Integer.parseInt(request.getParameter("page"));
+            session.setAttribute("page", page);
+
+        } else if(session.getAttribute("page") != null) {
+
+            page = (Integer)session.getAttribute("page");
+
+        } else {
+            session.removeAttribute("page");
+        }
+
+        String key = "";
+
+        if(request.getParameter("key") != null) {
+            key = request.getParameter("key");
+            session.setAttribute("key", key);
+        }else if(session.getAttribute("key") != null){
+            key = (String)session.getAttribute("key");
+        }else {
+            session.removeAttribute("key");
+        }
+
+        Paging paging = new Paging();
+
+        paging.setPage(page);
+
+        MemberVO memberVO1 = passTicketDAO.selectOnePassTicket(memberVO.getUserid());
+
+        int count = paymentDAO.getAllCount(memberVO.getUserid());
+
+        System.out.println("count : " + count);
+
+        paging.setTotalCount(count);
+
+        PaymentVO paymentVO = paymentDAO.getSelectList(memberVO.getUserid()); // subscribeyn이 'Y' 인것만 레코드만 리턴
+
+        // ArrayList<PaymentVO> passTicket2List = paymentDAO.getAllList(paging, memberVO.getUserid());
+
+        hm.put("paymentVO", paymentVO);
+        hm.put("memberVO", memberVO1);
 
         return hm;
     }
