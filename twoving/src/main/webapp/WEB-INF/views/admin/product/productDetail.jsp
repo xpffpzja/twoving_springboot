@@ -65,15 +65,17 @@
 		<div class="field" style="border-top:1px dotted black;">
 			<label>상품이미지</label>
 			<div>
-				<img src="image2/${productVO.savefilename}" width="300">
+				<img src="/images/${productVO.savefilename}" width="300">
 			</div>
 		</div>
-		<div class="field" style="border-top:1px dotted black; border-bottom:2px solid black;">
+
+		<%--<div class="field" style="border-top:1px dotted black; border-bottom:2px solid black;">
 			<label>상품이미지(디테일)</label>
 			<div>
-				<img src="image2/${productVO.savefilename2}" width="300">
+				<img src="/images/${productVO.savefilename2}" width="300">
 			</div>
-		</div>
+		</div>--%>
+
 		<div class="btn">
 			<input type="button" value="수정" onClick="go_mod('${productVO.pseq}')">
 			<input type="button" value="삭제" onClick="deleteProduct('${productVO.pseq}')">

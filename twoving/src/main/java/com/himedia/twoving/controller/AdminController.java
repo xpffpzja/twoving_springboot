@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -61,7 +62,7 @@ public class AdminController {
 
     //Product
     @GetMapping("/adminProductList")
-    public ModelAndView productList(HttpServletRequest request) {
+    public ModelAndView productList(HttpServletRequest request) { //, @RequestParam("key") String key
         ModelAndView mav = new ModelAndView();
         HttpSession session = request.getSession();
         if(session.getAttribute("loginAdmin") == null){
@@ -95,7 +96,6 @@ public class AdminController {
     @ResponseBody //자신을 호출하는 곳으로 "리턴되는 데이터"를 갖고 이동하여 페이지에 표시하라는 뜻
     public HashMap<String, Object> fileup(@RequestParam("fileimage") MultipartFile file,
                                           HttpServletRequest request, Model model){
-        System.out.println("되니1");
         String path = context.getRealPath("/images");
         Calendar today = Calendar.getInstance();
         long t = today.getTimeInMillis();
@@ -108,15 +108,12 @@ public class AdminController {
         HashMap<String,Object> result = new HashMap<String, Object>();
         try{
             file.transferTo(new File(uploadPath)); //파일이 업로드 및 저장되는 명령
-            System.out.println("되니2");
             result.put("STATUS", 1); // 파일 전송 상태
             result.put("IMAGE", filename);
             result.put("SAVEFILENAME", fn1 + t + fn2);
         } catch (IllegalStateException e) {
-            System.out.println("되니3");
             e.printStackTrace(); result.put("STATUS", 0);
         } catch (IOException e) {
-            System.out.println("되니4");
             e.printStackTrace(); result.put("STATUS", 0);
         }
         return result;
@@ -393,5 +390,4 @@ public class AdminController {
         }
         return mav;
     }
-
 }

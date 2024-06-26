@@ -154,13 +154,13 @@
 			</div> 
 			<div class="field" >
 					<label>기존 이미지</label>
-					<img src="image2/${productVO.savefilename}" width="200">
+					<img src="/images/${productVO.savefilename}" width="200">
 			</div>
 			
-			<div class="field">
+			<%--<div class="field">
 				<label>시리즈/영화 이미지(디테일)</label>
 				<input type="file" name="image2">
-			</div>
+			</div>--%>
 
 			<%--<div class="field" >
 					<label>기존이미지(디테일)</label>
