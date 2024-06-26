@@ -1,8 +1,10 @@
 package com.himedia.twoving.controller;
 
+import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.dto.NoticeVO;
 import com.himedia.twoving.service.NoticeService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,11 +56,18 @@ public class NoticeController {
     }
 
     @GetMapping("/customerinquiry")
-    public ModelAndView noticeCustomerInquiry(){
+    public ModelAndView noticeCustomerInquiry(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
 
-        mav.setViewName("customercenter/customerInquiry");
+        HttpSession session = request.getSession();
 
+        MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
+
+        if(memberVO == null){
+            mav.setViewName("redirect:/loginForm");
+        }else{
+            mav.setViewName("customercenter/customerInquiry");
+        }
         return mav;
     }
 

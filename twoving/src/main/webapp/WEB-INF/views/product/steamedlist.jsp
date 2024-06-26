@@ -5,36 +5,39 @@
 <%@ include file="Theader.jsp" %>
 
 <div class="box22">
-    <div class="box22-1"><img src="images/logo.png" width="120px" height="120px"  /></div>
+    <div class="box22-1"><img src="/images/logo.png" width="120px" height="120px"  /></div>
     <div class="box22-2"><span>${loginUser.name}</span>&nbsp;&nbsp;
-        <p><a><img src="images/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
+        <p><a><img src="/images/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
             <c:choose>
-                <c:when test="${passTicketVO.ptseq == 1}">
+                <c:when test="${memberVO.ptseq == 1}">
                     &nbsp;광고형 스탠다드
                 </c:when>
-                <c:when test="${passTicketVO.ptseq == 2}">
+                <c:when test="${memberVO.ptseq == 2}">
                     &nbsp;베이직
                 </c:when>
-                <c:when test="${passTicketVO.ptseq == 3}">
+                <c:when test="${memberVO.ptseq == 3}">
                     &nbsp;스탠다드
                 </c:when>
-                <c:when test="${passTicketVO.ptseq == 4}">
+                <c:when test="${memberVO.ptseq == 4}">
                     &nbsp;프리미엄
                 </c:when>
+                <c:otherwise>
+                    이용권 없음
+                </c:otherwise>
             </c:choose>
 
             <a>
                 <c:choose>
-                    <c:when test="${empty memberVO.userid}">
-                        <input type="button" onClick="updateDefuseCheck2()" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
+                    <c:when test="${paymentVO.subscribeyn eq 'Y'}">
+                        <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
                     </c:when>
                     <c:otherwise>
-                        <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
+                        <input type="button" onClick="updateDefuseCheck2()" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
                     </c:otherwise>
                 </c:choose>
             </a></p></div>
 
-    <div class="box22-3" onClick="location.href='updateMemberForm'" style="color:white;"><a><img src="images/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
+    <div class="box22-3" onClick="location.href='updateMemberForm'" style="color:white;"><a><img src="/images/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
 
 </div>
 <div class="box33">
@@ -44,7 +47,7 @@
 </div>
 
 <div class="box44">
-    <div class="box44-2" onClick="location.href='steamedlist?kind=0'">찜 &nbsp;</div><div class="box44-3" onClick="location.href='twoving.do?command=passTicketList'">이용권 &nbsp;</div>
+    <div class="box44-2" onClick="location.href='steamedlist?kind=0'">찜 &nbsp;</div><div class="box44-3" onClick="location.href='passTicketList'">이용권 &nbsp;</div>
     <div class="box44-4" onclick="location.href='customerInquiryListMypage'">문의 내역 &nbsp;</div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -57,7 +60,7 @@
     <br>
     <div id="hahaha">
         <c:forEach var = "ssteamed" items="${Alist}">
-            <div id="ssteamed"><a href="Tdetail?pseq=${ssteamed.pseq}"><img src="images/image2/${ssteamed.savefilename}"></a></div>
+            <div id="ssteamed"><a href="Tdetail?pseq=${ssteamed.pseq}"><img src="/images/image2/${ssteamed.savefilename}"></a></div>
         </c:forEach>
     </div>
 </div>

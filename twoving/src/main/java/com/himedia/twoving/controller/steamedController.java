@@ -2,6 +2,8 @@ package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.dto.steamedVO;
+import com.himedia.twoving.service.PassTicketService;
+import com.himedia.twoving.service.PaymentService;
 import com.himedia.twoving.service.ProductService;
 import com.himedia.twoving.service.steamedService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class steamedController {
@@ -24,6 +27,9 @@ public class steamedController {
 
     @Autowired
     ProductService ps;
+
+    @Autowired
+    PaymentService paymentService;
 
     @GetMapping("/steamedInsert")
     public String steamedInsert(@RequestParam("pseq") int pseq,
@@ -89,6 +95,9 @@ public class steamedController {
             ArrayList<steamedVO> list = ss.steamedview2(loginUser.getUserid());
             ArrayList<steamedVO> Alist = ss.selectKindProduct(kind);
 
+            MemberVO memberVO = paymentService.selectOneTicket(loginUser.getUserid());
+
+            mav.addObject("memberVO", memberVO);
             mav.addObject("kind", kind);
             mav.addObject("list", list);
             mav.addObject("Alist", Alist);

@@ -149,4 +149,10 @@ public class PaymentService {
         PaymentVO paymentVO = paymentDAO.getPaymentOne(userid);
         return paymentVO;
     }
+
+    public MemberVO selectOneTicket(String userid) {
+
+        MemberVO memberVO = passTicketDAO.selectOnePassTicket(userid);
+        return memberVO;
+    }
 }

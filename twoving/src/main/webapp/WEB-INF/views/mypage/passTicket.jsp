@@ -22,7 +22,7 @@
         <div class="box">
 
             <div class="box1">
-                <input type="button" class="logo" onclick="location.href='tMain'" style="cursor: pointer; color:red;" value="TWOVING" />
+                <input type="button" class="logo" onclick="location.href='Tmain'" style="cursor: pointer; color:red;" value="TWOVING" />
                 <div class="box1-2"><a href="kind?kind=0"  style="color:white;">시리즈</a></div>
                 <div class="box1-3"><a href="kind?kind=1" style="color:white;">영화</a></div>
             </div>

@@ -44,7 +44,7 @@
       </div>
       
       <div class="box44">
-      <div class="box44-2" onClick="location.href='steamedList?kind=0'">찜 &nbsp;</div><div class="box44-3" onClick="location.href='passTicketList'">이용권 &nbsp;</div>
+      <div class="box44-2" onClick="location.href='steamedlist?kind=0'">찜 &nbsp;</div><div class="box44-3" onClick="location.href='passTicketList'">이용권 &nbsp;</div>
       <div class="box44-4" onclick="location.href='customerInquiryListMypage'">문의 내역 &nbsp;</div>
       </div>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
