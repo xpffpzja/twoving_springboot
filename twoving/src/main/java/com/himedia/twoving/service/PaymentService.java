@@ -140,4 +140,9 @@ public class PaymentService {
 
         return hm;
     }
+
+    public PaymentVO getPaymentOne(String userid) {
+        PaymentVO paymentVO = paymentDAO.getPaymentOne(userid);
+        return paymentVO;
+    }
 }

@@ -23,6 +23,7 @@
     <script src="/script/slideToggleFuc.js"></script>
     <script src="/script/mypage.js"></script>
     <script src="/script/Tmain.js"></script>
+    <script src="/script/payment.js"></script>
 
     <script>
 

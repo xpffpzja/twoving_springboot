@@ -31,4 +31,8 @@
     <update id="updateMemberPass">
         update member set ptseq=#{param2} where userid=#{param1}
     </update>
+
+    <select id="getPaymentOne" resultType="com.himedia.twoving.dto.PaymentVO">
+        select* from payment where userid=#{param1}
+    </select>
 </mapper>

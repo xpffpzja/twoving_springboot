@@ -22,4 +22,6 @@ public interface IPaymentDAO {
     void passTicketInsert1(PaymentVO paymentVO);
 
     void updateMemberPass(String userid, int ptseq);
+
+    PaymentVO getPaymentOne(String userid);
 }
