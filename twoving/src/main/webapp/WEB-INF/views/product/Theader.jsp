@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="/css/Tdetail.css">
     <link rel="stylesheet" href="/css/kind.css">
     <link rel="stylesheet" href="/css/genre.css">
-    <link rel="stylesheet" href="/css/steamedlist.css">
-    <!-- <link rel = "stylesheet"  href = "css/header_footer.css"/> -->
+    <link rel="stylesheet" href ="/css/steamedlist.css"/> -->
     <link rel = "stylesheet" type =  "text/css" href = "/css/section.css"/>
+
     <script src="/script/jquery-3.7.1.min.js"></script>
     <script src="/script/faqForm.js"></script>
     <script src="/script/jqueryAction.js"></script>
@@ -54,7 +54,7 @@
             <div class="mypage"><a href="#"><img src="images/logo.png"  style="width:40px; height:40px; "></a>
                 <div class="profileclick" >
                     <br>
-                    <div class ="kjy"><a href="passTicketList" >My페이지</a></div>
+                    <div class ="kjy"><a href="steamedlist?kind=0" >My페이지</a></div>
                     <!-- <div class ="kjy"><a href="twoving.do?command=steamedList&kind=0" >My페이지</a></div> -->
                     <br>
                     <div class ="kjy"><a href="notice">고객센터</a></div>

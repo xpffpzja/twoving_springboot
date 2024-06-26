@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.himedia.twoving.dao.IsteamedDao">
+
+    <insert id="insertsteamed" parameterType="com.himedia.twoving.dto.steamedVO">
+        insert into steamed(userid, pseq, result) values(#{userid}, #{pseq}, #{result})
+    </insert>
+
+    <delete id="deletsteamed" parameterType="com.himedia.twoving.dto.steamedVO">
+        delete from steamed where pseq=(#{pseq})
+    </delete>
+
+    <select id="steamedview" resultType="com.himedia.twoving.dto.steamedVO">
+        select * from steamed_view where userid=#{userid} and pseq=#{pseq}
+    </select>
+
+    <select id="steamedview2" resultType="com.himedia.twoving.dto.steamedVO">
+        select * from steamed_view where userid=#{userid}
+    </select>
+
+    <select id="selectKindProduct" resultType="com.himedia.twoving.dto.steamedVO">
+        select * from steamed_view where kind=#{kind}
+    </select>
+
+</mapper>

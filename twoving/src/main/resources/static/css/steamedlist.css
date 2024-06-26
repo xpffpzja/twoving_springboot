@@ -35,7 +35,7 @@
 .box22-1, .box22-2 {
 	margin-left: 20px; /* Align to the left with some margin */
 	font-size: 130%;
-	
+
 }
 
 
@@ -53,7 +53,7 @@
 }
 
 a {
-	
+
 	font-size: 120%;
 	font-weight: bold;
 	text-decoration: none;
@@ -90,7 +90,7 @@ a {
 	margin-left: -940px;
 	width: 100%;
 	position: absolute;
-    border: 1px solid white;
+	border: 1px solid white;
 }
 
 .paymentTable table{
@@ -109,21 +109,21 @@ a {
 }
 
 .paymentTable th, .paymentTable td {
-       width: 100%;
-       padding: 8px; 
+	width: 100%;
+	padding: 8px;
 }
 
 .paymentTable th {
-      background-color: gray;
-      color: white;
+	background-color: gray;
+	color: white;
 }
 .paymentTable tr {
-      display: flex;
-      width: 100%;
+	display: flex;
+	width: 100%;
 }
 
- .paymentTable tr > * {
-            flex: 1;
+.paymentTable tr > * {
+	flex: 1;
 }
 
 .updateDefuseTable tr{
@@ -148,18 +148,18 @@ a {
 	color: gray;
 	font-weight: bold;
 	cursor: pointer;
-	
+
 }
 .img{
-		margin-top: 20px; 
+	margin-top: 20px;
 }
 .ticket{
-		color:white;
-		font-size: 80%;
-		border: 1px solid gray;
-		border-radius: 3px;
-		padding:3px;
-		text-decoration-line: none;
+	color:white;
+	font-size: 80%;
+	border: 1px solid gray;
+	border-radius: 3px;
+	padding:3px;
+	text-decoration-line: none;
 }
 
 
