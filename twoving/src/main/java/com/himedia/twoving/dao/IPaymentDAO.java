@@ -20,4 +20,6 @@ public interface IPaymentDAO {
     void passTicketUpdate1(int pmseq);
 
     void passTicketInsert1(PaymentVO paymentVO);
+
+    void updateMemberPass(String userid, int ptseq);
 }

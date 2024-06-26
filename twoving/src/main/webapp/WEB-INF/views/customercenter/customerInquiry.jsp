@@ -34,7 +34,7 @@
 					<form action="qnaList" method="post" name="inquiryForm" style="" class="inquiryClassForm">
 					<div class="field">
 						<span>이름*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="text" value="김동민" name="name" style="color:white; font-weight:bold; padding:15px;" readonly>
+						<input type="text" value="${loginUser.name}" name="name" style="color:white; font-weight:bold; padding:15px;" readonly>
 					</div>
 					<div class="field">
 						<span>이메일*</span>&nbsp;&nbsp;&nbsp;

@@ -98,4 +98,20 @@ public class PassTicketController {
         return mav;
     }
 
+    @GetMapping("/updateMemberPassTicket")
+    public ModelAndView updateMemberPassTicket(@RequestParam("ptseq") int ptseq, HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        MemberVO memberVO =(MemberVO)session.getAttribute("loginUser");
+
+        if(memberVO == null){
+            mav.setViewName("redirect:/loginForm");
+        }else{
+            passTicketService.updateMemberPass(memberVO.getUserid(), ptseq);
+            mav.setViewName("mypage/insertPassTicketSuccess");
+        }
+
+        return mav;
+    }
+
 }

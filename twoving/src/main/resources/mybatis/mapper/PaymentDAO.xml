@@ -27,4 +27,8 @@
     <insert id="passTicketInsert1" parameterType="com.himedia.twoving.dto.PaymentVO">
         insert into payment(userid, subscribeyn, productname, paymentprice) values(#{userid},#{subscribeyn},#{productname},#{paymentprice})
     </insert>
+
+    <update id="updateMemberPass">
+        update member set ptseq=#{param2} where userid=#{param1}
+    </update>
 </mapper>

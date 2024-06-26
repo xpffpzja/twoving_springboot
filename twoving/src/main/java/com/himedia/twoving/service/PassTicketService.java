@@ -48,4 +48,8 @@ public class PassTicketService {
 
         paymentDAO.passTicketInsert1(paymentVO);
     }
+
+    public void updateMemberPass(String userid, int ptseq) {
+        paymentDAO.updateMemberPass(userid, ptseq);
+    }
 }

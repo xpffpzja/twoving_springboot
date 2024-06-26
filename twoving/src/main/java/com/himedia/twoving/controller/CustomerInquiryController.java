@@ -1,8 +1,10 @@
 package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.CustomerInquiryVO;
+import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.service.CustomerInquiryService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
