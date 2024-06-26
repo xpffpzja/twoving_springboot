@@ -17,7 +17,7 @@
     </select>
 
     <select id="getPayment" resultType="com.himedia.twoving.dto.PaymentVO">
-        select* from payment where productname=#{param1} and subscribeyn='Y'
+        select* from payment where productname=#{param1} and userid=#{param2} and subscribeyn='Y'
     </select>
 
     <update id="passTicketUpdate1">

@@ -32,7 +32,7 @@
 		     </div> --%>
 		
 			<div class="detail-button" style="margin-top: 30px;">
-				<input type="button" value="목록으로" onClick="location.href='/'" size="150">
+				<input type="button" value="목록으로" onClick="location.href='notice'" size="150">
 			</div>
 		</div>
 		

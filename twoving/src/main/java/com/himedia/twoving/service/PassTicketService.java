@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 
@@ -19,12 +20,13 @@ public class PassTicketService {
     @Autowired
     IPaymentDAO paymentDAO;
 
+    @Transactional(rollbackFor = {RuntimeException.class, Error.class})
     public HashMap<String, Object> getPaymentAndSelectMemberPass(String productname, String userid, HttpServletRequest request) {
         HashMap<String, Object> hm = new HashMap<String, Object>();
         HttpSession session = request.getSession();
         MemberVO memberVO =(MemberVO)session.getAttribute("loginUser");
 
-        PaymentVO paymentVO = paymentDAO.getPayment(productname);
+        PaymentVO paymentVO = paymentDAO.getPayment(productname, memberVO.getUserid());
 
         MemberVO memberVO1 = passTicketDAO.selectMemberPassTicket(memberVO.getUserid());
 

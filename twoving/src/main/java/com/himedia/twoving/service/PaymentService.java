@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,8 @@ public class PaymentService {
 
     @Autowired
     IPassTicketDAO passTicketDAO;
+
+    @Transactional(rollbackFor = {RuntimeException.class, Error.class})
     public HashMap<String, Object> passTicketList(HttpServletRequest request) {
 
         HashMap<String, Object> hm = new HashMap<>();
@@ -83,6 +86,7 @@ public class PaymentService {
         return hm;
     }
 
+    @Transactional(rollbackFor = {RuntimeException.class, Error.class})
     public HashMap<String, Object> passTicketListMyPageUpdate(HttpServletRequest request) {
         HashMap<String, Object> hm = new HashMap<>();
 
