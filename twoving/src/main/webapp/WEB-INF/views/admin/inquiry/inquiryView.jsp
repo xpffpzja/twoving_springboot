@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
 
 <link rel="stylesheet" href="/admin/css/notice.css" />
 
@@ -20,7 +20,7 @@
 					<label>연락처</label><div>${cvo.phone}</div>
 			</div>
 			<div class="field" style="border-bottom: 1px dotted black;">
-					<label>문의종류</label><div>${cvo.inquiryList}</div>
+					<label>문의종류</label><div>${cvo.inquirylist}</div>
 			</div>
 			<div class="field" style="border-bottom: 1px dotted black;">
 					<label>디바이스</label><div>${cvo.devicephone} / ${cvo.devicemodelname}</div>
@@ -62,9 +62,9 @@
 			
 			<div class="btn" >
 					<input type="button" value="목록으로" 
-							onClick="location.href='twoving.do?command=adminCustomerInquiryList'">
+							onClick="location.href='adminCustomerInquiryList'">
 			</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../footer.jsp"%>

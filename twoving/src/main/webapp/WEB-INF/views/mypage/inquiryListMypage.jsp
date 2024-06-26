@@ -3,30 +3,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
-<link rel="stylesheet" href="admin/css/adminList.css" />
-<script src="admin/script/admin.js"></script>
-<script src="admin/script/mypage.js"></script>
-<link rel="stylesheet" type="text/css" href="css/mypage.css">
-<link rel="stylesheet" type="text/css" href="css/inquiry.css">
+<link rel="stylesheet" href="/admin/css/adminList.css" />
+<script src="/admin/script/admin.js"></script>
+<script src="/admin/script/mypage.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/mypage.css">
+<link rel="stylesheet" type="text/css" href="/css/inquiry.css">
 <article>
 
 		  <div class="box">
    
    <div class="box1">
-   <input type="button" class="logo" onclick="location.href='twoving.do?command=tMain'" style="cursor: pointer; color:red;" value="TWOVING" />
-               <div class="box1-2"><a href="twoving.do?command=kind&kind=0"  style="color:white;">시리즈</a></div>
-               <div class="box1-3"><a href="twoving.do?command=kind&kind=1" style="color:white;">영화</a></div>
+   <input type="button" class="logo" onclick="location.href='tMain'" style="cursor: pointer; color:red;" value="TWOVING" />
+               <div class="box1-2"><a href="kind?kind=0"  style="color:white;">시리즈</a></div>
+               <div class="box1-3"><a href="kind?kind=1" style="color:white;">영화</a></div>
     </div>
     <div class="box2">
           <%-- <div class="box2-2" id="input"><input type="text" placeholder="검색"  name="key" value="${key}" ><a href="#" onClick="go_search('searchList')"><img src="member/돋보기.png" width="40px" height="40px"  /></a>&nbsp;&nbsp;</div> --%>
-          <div class="box2-1" ><a href="#"><img src="member/logo.png" width="40px" height="40px"  /></a>&nbsp;&nbsp;
+          <div class="box2-1" ><a href="#"><img src="/images/logo.png" width="40px" height="40px"  /></a>&nbsp;&nbsp;
           	<div class="profileclick" >
                   <br><br>
-                  <div><a href="twoving.do?command=mypage">My페이지</a></div>
+                  <div><a href="mypage">My페이지</a></div>
                   <br>
-                  <div><a href="twoving.do?command=notice">고객센터</a></div>
+                  <div><a href="notice">고객센터</a></div>
                   <br>
-                  <div><a href="twoving.do?command=logout">로그아웃</a></div>
+                  <div><a href="logout">로그아웃</a></div>
             </div>
           
           </div>
@@ -44,13 +44,13 @@
 	 
       </div>
       <div class="box22">
-         <div class="box22-1"><img src="member/logo.png" width="120px" height="120px"  /></div>
+         <div class="box22-1"><img src="/images/logo.png" width="120px" height="120px"  /></div>
          <div class="box22-2"><span>이름</span>&nbsp;&nbsp; ${loginUser.name} <br>
-         <a><img src="member/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
+         <a><img src="/images/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
   
          <a> <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/></a></p></div>
          
-         <div class="box22-3" onClick="location.href='twoving.do?command=updateMemberForm'"><a><img src="member/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
+         <div class="box22-3" onClick="location.href='updateMemberForm'"><a><img src="/images/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
          
       </div>
       <div class="box33">
@@ -63,16 +63,16 @@
       
    
       
-      <div class="box44-2" onClick="location.href='twoving.do?command=steamedList&kind=0'">찜 &nbsp;</div>
-      <div class="box44-3" onClick="location.href='twoving.do?command=passTicketList'">이용권 &nbsp;</div>
-      <div class="box44-4" onclick="location.href='twoving.do?command=customerInquiryListMypage'">문의 내역 &nbsp;</div>
+      <div class="box44-2" onClick="location.href='steamedList&kind=0'">찜 &nbsp;</div>
+      <div class="box44-3" onClick="location.href='passTicketList'">이용권 &nbsp;</div>
+      <div class="box44-4" onclick="location.href='customerInquiryListMypage'">문의 내역 &nbsp;</div>
 
       
       
       </div>
 		
 	<form method = "post" name="frm" style="width: 1900px;">
-	<div class="tb" style="margin-top: 1000px; " >
+	<div class="tb" style="margin-top: 1200px; " >
 		<div class="row" style="margin-top: 220px;">
 			<div class="col" style="display:flex; align-items : center; border:3px solid black; background-color: #353535; height: 50px; ">
 				<div class="search">제목 검색  :   &nbsp;</div> &nbsp;
@@ -80,7 +80,7 @@
 				&nbsp;&nbsp;&nbsp;
 				<div>
 				<!-- <img src="admin/images/search.png" style="width:30px; cursor: pointer;" onClick="go_search( 'adminCustomerInquiryList' )"> -->
-				<img src="member/돋보기.png" style="width:30px; cursor: pointer;" onClick="go_search( 'customerInquiryListMypage' )">
+				<img src="/images/돋보기.png" style="width:30px; cursor: pointer;" onClick="go_search( 'customerInquiryListMypage' )">
 				</div>
 				&nbsp;&nbsp;&nbsp;
 			</div>
@@ -106,7 +106,7 @@
                 </c:otherwise>
             </c:choose>
         </div>
-        <div class="col" style="flex: 1.5; border-right: 1px solid gray;">${inquiryVO.inquiryList}</div> <!-- Adjust this to display the correct category -->
+        <div class="col" style="flex: 1.5; border-right: 1px solid gray;">${inquiryVO.inquirylist}</div> <!-- Adjust this to display the correct category -->
         
         <div class="col" style="flex: 6; color:white;">
             <a href="#" onClick="go_detailInquiryMypage('${inquiryVO.ciseq}')" style="color:white;">
@@ -120,7 +120,7 @@
     </div>
 </c:forEach>
 		<jsp:include page="../paging/passTicketPaging2.jsp">
-			<jsp:param value="twoving.do?command=customerInquiryListMypage" name="address" />
+			<jsp:param value="customerInquiryListMypage" name="address" />
 		</jsp:include>
 	</div>
 	</form>

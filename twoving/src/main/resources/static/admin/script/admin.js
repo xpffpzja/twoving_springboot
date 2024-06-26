@@ -106,13 +106,16 @@ function go_save(){
 	} else if (theForm.title.value == "") {
 		alert('시리즈/영화명을 입력하세요.'); 				theForm.title.focus();	
 	} else if (theForm.content.value == "") {
-		alert('상세설명을 입력하세요.'); 		theForm.content.focus();
-	} else if (theForm.image.value == "") {
-		alert('상품이미지를 입력하세요.');		theForm.image.focus();	
-	} else if (theForm.image2.value == "") {
-		alert('상품이미지(디테일)를 입력하세요.');		theForm.image2.focus();	
-	} else{
-		theForm.action = "adminProductWrite";
+		alert('상세설명을 입력하세요.');
+		theForm.content.focus();
+	}
+	// } else if (theForm.image.value == "") {
+	// 	alert('상품이미지를 입력하세요.');		theForm.image.focus();
+	// } else if (theForm.image2.value == "") {
+	// 	alert('상품이미지(디테일)를 입력하세요.');		theForm.image2.focus();
+	// }
+	else{
+		//theForm.action = "adminProductWrite";
 		theForm.submit();
 	}
 }
@@ -210,27 +213,13 @@ function go_update2(){
 }
 
 function go_update3(){
-	var theForm = document.faqWriteFrm;
-	if( theForm.kind.value==""){   
-		alert('구분을 선택하세요'); 				theForm.kind.focus();
-	}else if (theForm.genre.value == "") {
-		alert('장르를 선택하세요.'); 				theForm.genre.focus();
-	} else if (theForm.useyn.value == "") {
-		alert('사용 유무를 선택하세요.'); 			theForm.useyn.focus();
-	} else if (theForm.newyn.value == "") {
-	alert('New 시리즈/영화를 선택하세요.'); 				theForm.newyn.focus();	
-	} else if (theForm.bestyn.value == "") {
-	alert('Best 시리즈/영화를 선택하세요.'); 				theForm.bestyn.focus();	
-	} else if (theForm.age.value == "") {
-		alert('관람 나이 제한을 선택하세요.'); 				theForm.age.focus();	
-	} else if (theForm.year.value == "") {
-		alert('년도를 입력하세요.'); 							theForm.year.focus();	
-	} else if (theForm.time.value == "") {
-		alert('영상 시간을 입력하세요.'); 							theForm.time.focus();	
-	} else if (theForm.title.value == "") {
-		alert('시리즈/영화명을 입력하세요.'); 				theForm.title.focus();	
+	var theForm = document.faqUpdateFrm;
+	if( theForm.inquirylist.value==""){
+		alert('분류를 선택하세요'); 				theForm.inquirylist.focus();
+	}else if (theForm.subject.value == "") {
+		alert('제목을 입력하세요.'); 				theForm.subject.focus();
 	} else if (theForm.content.value == "") {
-		alert('상세설명을 입력하세요.'); 		theForm.content.focus();
+		alert('내용을 입력하세요.'); 			theForm.content.focus();
 	} else {
 		theForm.action = "adminFaqUpdate";
 		theForm.submit();
@@ -263,7 +252,7 @@ function go_rep(){
 		alert("답변내용을 입력하세요");
 		document.inquiryViewFrm.reply.focus();
 	}else{
-		document.inquiryViewFrm.action = "adminCustomerInquiryReplyUpdateAction";
+		document.inquiryViewFrm.action = "adminCustomerInquiryReplyUpdate";
 		document.inquiryViewFrm.submit();
 	}
 }

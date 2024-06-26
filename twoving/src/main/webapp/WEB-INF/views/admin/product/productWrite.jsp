@@ -16,7 +16,7 @@
 </style>
 
 <article>
-	<form name="productWriteFrm" method="post"  enctype="multipart/form-data">
+	<form name="productWriteFrm" method="post"  enctype="multipart/form-data" action="adminProductWrite">
 			<h1 style="text-align: center;"> 시리즈 / 영화 작성 </h1>
 			<%-- <div class="field" >
 					<label>상품분류</label>
@@ -107,8 +107,17 @@
 			
 			<!-- 서로 바껴서 들어감 우선적으로 name만 변경 --원복 -->
 			<div class="field" >
-					<label>시리즈/영화이미지</label><input type="file" name="image">
+					<label>시리즈/영화이미지</label>
+				<!-- Ajax 적용 -->
+					<%--<input type="file" name="image">--%>
+				<div>
+					<input type="hidden" name="image" id="image"> <!-- 전송될 파일이름 -->
+					<input type="hidden" name="savefilename" id="savefilename">
+					<div id="filename"></div>
+				</div>
+				<!-- Ajax 적용 -->
 			</div>
+
 			<div class="field" >
 					<label>시리즈/영화이미지(디테일)</label><input type="file" name="image2">
 			</div>
@@ -118,6 +127,15 @@
 					<input type="button" value="목록으로" 
 							onClick="location.href='adminProductList'">
 			</div>
+
+		<!-- Ajax 적용 -->
+		<div style="position: relative; border: 1px solid black; width: 500px; margin: 0 auto; top:-150px;">
+			<form name="formm" id="fileupForm" method="post" enctype="multipart/form-data">
+				<input type="file" name="fileimage">
+				<input type="button" id="myButton" value="추가">
+			</form>
+		</div>
+		<!-- Ajax 적용 -->
 	</form>
 </article>
 

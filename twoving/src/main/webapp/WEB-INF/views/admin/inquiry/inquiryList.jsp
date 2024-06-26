@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp" %>
-<%@ include file="/admin/sub_menu.jsp" %>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
 
 <article>
 	<form method = "post" name="frm">
@@ -11,7 +11,7 @@
 				고객문의 제목 검색 : &nbsp;<input type="text" name="key" value="${key}">
 				&nbsp;&nbsp;&nbsp;
 				<div>
-				<img src="admin/images/search.png" style="width:30px; cursor: pointer;" onClick="go_search( 'adminCustomerInquiryList' )">
+				<img src="/admin/images/search.png" style="width:30px; cursor: pointer;" onClick="go_search( 'adminCustomerInquiryList' )">
 				</div>
 				&nbsp;&nbsp;&nbsp;
 			</div>
@@ -48,11 +48,11 @@
 <%-- 				<div class="col" style="flex:1"><fmt:formatDate value="${noticeVO.indate}" /></div> --%>
 			</div>
 		</c:forEach>
-		<jsp:include page="/admin/paging/paging.jsp">
-			<jsp:param value="twoving.do?command=adminCustomerInquiryList" name="address" />
+		<jsp:include page="../paging/paging.jsp">
+			<jsp:param value="adminCustomerInquiryList" name="address" />
 		</jsp:include>
 	</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp" %>
+<%@ include file="../footer.jsp" %>

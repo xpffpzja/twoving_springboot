@@ -3,11 +3,11 @@
 <%@ include file="../sub_menu.jsp" %>
 
 <!-- <link rel="stylesheet" href="/admin/css/notice.css" /> -->
-<script type="text/javascript"> 
+<%--<script type="text/javascript">
 	console.log(${FaqVO.inquirylist})
-</script>
+</script>--%>
 <article>
-	<form name="faqWriteFrm" method="post"  enctype="multipart/form-data">
+	<form name="faqUpdateFrm" method="post"  enctype="multipart/form-data">
 			<input type="hidden" name="qseq" value="${FaqVO.qseq}" />
 			<h1 style="text-align: center;"> FAQ 수정 </h1>
 			<div class="field" >

@@ -33,4 +33,18 @@ public interface IAdminDao {
     FaqVO getFaq(int qseq);
 
     void deleteFaq(int qseq);
+
+    void updateFaq(FaqVO faqvo);
+
+    List<CustomerInquiryVO> getCustomerList(Paging paging, String key);
+
+    CustomerInquiryVO getCustomerInquiry(int ciseq);
+
+    void updateInquiryReply(CustomerInquiryVO customervo);
+
+    ProductVO getProduct(int pseq);
+
+    void deleteProduct(int pseq);
+
+    void updateProduct(ProductVO productvo);
 }

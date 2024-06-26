@@ -1,6 +1,6 @@
 //mypage
 function go_detailInquiryMypage( ciseq ){
-	location.href="twoving.do?command=customerInquiryMypageDetail&ciseq=" + ciseq;
+	location.href="customerInquiryMypageDetail?ciseq=" + ciseq;
 }
 
 /*function loginCheck(){

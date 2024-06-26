@@ -1,6 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/admin/header.jsp"%>
-<%@ include file="/admin/sub_menu.jsp"%>
+<%@ include file="../header.jsp" %>
+<%@ include file="../sub_menu.jsp" %>
+
+<script>
+	// 장르 선택
+	document.addEventListener('DOMContentLoaded', function() {
+		var genreSelect = document.getElementById('genre');
+		var selectedGenre = '${productVO.genre}'; // 원하는 장르 이름
+
+		for (var i = 0; i < genreSelect.options.length; i++) {
+			if (genreSelect.options[i].value === selectedGenre) {
+				genreSelect.options[i].selected = true;
+				break;
+			}
+		}
+	});
+
+	// 관람나이제한 선택
+	document.addEventListener('DOMContentLoaded', function() {
+		var ageSelect = document.getElementById('age');
+		var selectedAge = '${productVO.age}';
+
+		for (var i = 0; i < ageSelect.options.length; i++) {
+			if (ageSelect.options[i].value === selectedAge) {
+				ageSelect.options[i].selected = true;
+				break;
+			}
+		}
+	});
+</script>
 
 <article>
 	<form name="productUpdateFrm" method="post"  enctype="multipart/form-data">
@@ -133,17 +161,18 @@
 				<label>시리즈/영화 이미지(디테일)</label>
 				<input type="file" name="image2">
 			</div>
-			<div class="field" >
+
+			<%--<div class="field" >
 					<label>기존이미지(디테일)</label>
 					<img src="image2/${productVO.savefilename2}" width="200">
-			</div>
+			</div>--%>
 			
 			<div class="btn">
 				<input type="button" value="상품수정" onclick="go_update()" >
 				<input type="button" value="목록으로" 
-				onclick="location.href='twoving.do?command=adminProductList'" >
+				onclick="location.href='adminProductList'" >
 		</div>
 	</form>
 </article>
 
-<%@ include file="/admin/footer.jsp"%>
+<%@ include file="../footer.jsp"%>

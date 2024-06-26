@@ -1,10 +1,8 @@
 package com.himedia.twoving.controller;
 
-import com.himedia.twoving.dto.AdminVO;
-import com.himedia.twoving.dto.FaqVO;
-import com.himedia.twoving.dto.NoticeVO;
-import com.himedia.twoving.dto.ProductVO;
+import com.himedia.twoving.dto.*;
 import com.himedia.twoving.service.AdminService;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -12,12 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 
 @Controller
@@ -60,6 +59,7 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    //Product
     @GetMapping("/adminProductList")
     public ModelAndView productList(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
@@ -83,9 +83,84 @@ public class AdminController {
 
     @PostMapping("/adminProductWrite")
     public String adminProductWrite(@ModelAttribute("dto") @Valid ProductVO productvo, BindingResult result) {
-        //추가 수정 해야함.
+        //이미지 2개 추가.
         as.insertProduct(productvo);
         return "redirect:/adminProductList";
+    }
+
+    @Autowired
+    ServletContext context;
+
+    @PostMapping("/fileup")
+    @ResponseBody //자신을 호출하는 곳으로 "리턴되는 데이터"를 갖고 이동하여 페이지에 표시하라는 뜻
+    public HashMap<String, Object> fileup(@RequestParam("fileimage") MultipartFile file,
+                                          HttpServletRequest request, Model model){
+        System.out.println("되니1");
+        String path = context.getRealPath("/images");
+        Calendar today = Calendar.getInstance();
+        long t = today.getTimeInMillis();
+        String filename = file.getOriginalFilename();
+        String fn1 = filename.substring(0, filename.indexOf(".")); //파일 이름과 확장장 분리
+        String fn2 = filename.substring(filename.indexOf("."));
+        String uploadPath = path + "/" + fn1 + t + fn2;
+        System.out.println("파일 저장 경로 = " + uploadPath);
+
+        HashMap<String,Object> result = new HashMap<String, Object>();
+        try{
+            file.transferTo(new File(uploadPath)); //파일이 업로드 및 저장되는 명령
+            System.out.println("되니2");
+            result.put("STATUS", 1); // 파일 전송 상태
+            result.put("IMAGE", filename);
+            result.put("SAVEFILENAME", fn1 + t + fn2);
+        } catch (IllegalStateException e) {
+            System.out.println("되니3");
+            e.printStackTrace(); result.put("STATUS", 0);
+        } catch (IOException e) {
+            System.out.println("되니4");
+            e.printStackTrace(); result.put("STATUS", 0);
+        }
+        return result;
+    }
+
+    @GetMapping("/adminProductDetail")
+    public ModelAndView adminProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            mav.setViewName("admin/adminLoginForm");
+        }else {
+            mav.addObject("productVO", as.getProduct(pseq));
+            mav.setViewName("admin/product/productDetail");
+        }
+        return mav;
+    }
+
+    @GetMapping("/adminProductDelete")
+    public String adminProductDelete(@RequestParam("pseq") int pseq, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            return "redirect:/admin";
+        }else {
+            as.deleteProduct(pseq);
+            return "redirect:/adminProductList";
+        }
+    }
+
+    @GetMapping("/adminProductUpdateForm")
+    public ModelAndView adminProductUpdateForm(@RequestParam("pseq") int pseq){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("productVO", as.getProduct(pseq));
+        mav.setViewName("admin/product/productUpdate");
+        return mav;
+    }
+
+    @PostMapping("/adminProductUpdate")
+    public String adminProductUpdate(@ModelAttribute("dto") ProductVO productvo,
+                                    HttpServletRequest request, BindingResult result, Model model){
+        System.out.println("여긴오니");
+        String url="redirect:/adminProductDetail?pseq="+productvo.getPseq();
+        as.updateProduct(productvo);
+        return url;
     }
 
     //파일 업로드 (Ajax 2개?) --나중에...
@@ -216,7 +291,6 @@ public class AdminController {
 
     @GetMapping("/adminFaqDelete")
     public String adminFaqDelete(@RequestParam("qseq") int qseq, HttpServletRequest request){
-        System.out.println("여기옴?");
         HttpSession session = request.getSession();
         if(session.getAttribute("loginAdmin") == null){
             return "redirect:/admin";
@@ -229,7 +303,7 @@ public class AdminController {
     @GetMapping("/adminFaqUpdateForm")
     public ModelAndView adminFaqUpdateForm(@RequestParam("qseq") int qseq){
         ModelAndView mav = new ModelAndView();
-        mav.addObject("faqVO", as.getFaq(qseq));
+        mav.addObject("FaqVO", as.getFaq(qseq));
         mav.setViewName("admin/faq/faqUpdate");
         return mav;
     }
@@ -238,7 +312,7 @@ public class AdminController {
     public String adminFaqUpdate(@ModelAttribute("dto") @Valid FaqVO faqvo,
                                     HttpServletRequest request, BindingResult result, Model model){
         String url = "admin/faq/faqUpdate";
-        model.addAttribute("faqVO", as.getFaq(faqvo.getQseq()));
+        model.addAttribute("FaqVO", as.getFaq(faqvo.getQseq()));
         if(result.getFieldError("subject") != null){
             model.addAttribute("message", "제목은 필수 사항입니다.");
         }else if(result.getFieldError("content") != null){
@@ -249,4 +323,75 @@ public class AdminController {
         }
         return url;
     }
+
+    //customerinquiry
+    @GetMapping("/adminCustomerInquiryList")
+    public ModelAndView adminCustomerInquiryList(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            mav.setViewName("admin/adminLoginForm");
+        }else{
+            HashMap<String,Object> result = as.getAdminCustomerList(request);
+            mav.addObject("inquiryList", result.get("inquiryList"));
+            mav.addObject("paging", result.get("paging"));
+            mav.addObject("key", result.get("key"));
+            mav.setViewName("admin/inquiry/inquiryList");
+        }
+        return mav;
+    }
+
+    @GetMapping("/adminCustomerInquiryDetail")
+    public ModelAndView adminCustomerInquiryDetail(@RequestParam("ciseq") int ciseq, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginAdmin") == null){
+            mav.setViewName("admin/adminLoginForm");
+        }else {
+            mav.addObject("cvo", as.getCustomerInquiry(ciseq));
+            mav.setViewName("admin/inquiry/inquiryView");
+        }
+        return mav;
+    }
+
+    @PostMapping("/adminCustomerInquiryReplyUpdate")
+    public String adminCustomerInquiryReplyUpdate(@ModelAttribute("dto") CustomerInquiryVO customervo,
+                                    HttpServletRequest request, BindingResult result, Model model){
+        String url="redirect:/adminCustomerInquiryDetail?ciseq="+customervo.getCiseq();
+        as.updateInquiryReply(customervo);
+        return url;
+    }
+
+
+    //admin아님
+    //mypage - 문의내역, 원래는 member별로 관리
+    @GetMapping("/customerInquiryListMypage")
+    public ModelAndView customerInquiryListMypage(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginUser") == null){
+            mav.setViewName("member/loginForm");
+        }else{
+            HashMap<String,Object> result = as.getCustomerInquiryListMypage(request);
+            mav.addObject("inquiryList", result.get("inquiryList"));
+            mav.addObject("paging", result.get("paging"));
+            mav.addObject("key", result.get("key"));
+            mav.setViewName("mypage/inquiryListMypage");
+        }
+        return mav;
+    }
+
+    @GetMapping("/customerInquiryMypageDetail")
+    public ModelAndView customerInquiryMypageDetail(@RequestParam("ciseq") int ciseq, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        HttpSession session = request.getSession();
+        if(session.getAttribute("loginUser") == null){
+            mav.setViewName("member/loginForm");
+        }else {
+            mav.addObject("cvo", as.getCustomerInquiry(ciseq));
+            mav.setViewName("mypage/inquiryDetail");
+        }
+        return mav;
+    }
+
 }

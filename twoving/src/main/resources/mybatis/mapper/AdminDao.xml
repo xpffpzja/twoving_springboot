@@ -21,6 +21,21 @@
         values (#{kind}, #{genre}, #{mainyn}, #{bestyn}, #{newyn}, #{useyn}, #{title}, #{content},#{age},#{count},#{year},#{time},#{image},#{savefilename},#{image2},#{savefilename2})
     </insert>
 
+    <select id="getProduct" resultType="com.himedia.twoving.dto.ProductVO">
+        select * from product where pseq=#{param1}
+    </select>
+
+    <delete id="deleteProduct">
+        delete from product where pseq=#{param1}
+    </delete>
+
+    <update id="updateProduct" parameterType="com.himedia.twoving.dto.ProductVO">
+        update product set kind=#{kind}, genre=#{genre}, bestyn=#{bestyn}, newyn=#{newyn}, useyn=#{useyn},
+                           title=#{title}, content=#{content}, age=#{age}, year=#{year},
+                           time=#{time}, image=#{image}, savefilename=#{savefilename},
+                           image2=#{image2}, savefilename2=#{savefilename2} where pseq=#{pseq}
+    </update>
+
     <select id="getNoticeList" resultType="com.himedia.twoving.dto.NoticeVO">
         select * from notice where title like concat('%', #{param2}, '%') order by noticeyn desc, nseq desc limit #{param1.displayRow} offset #{param1.startNum}
     </select>
@@ -61,6 +76,18 @@
 
     <update id="updateFaq" parameterType="com.himedia.twoving.dto.FaqVO">
         update faq set inquirylist=#{inquirylist}, subject=#{subject}, content=#{content} where qseq=#{qseq}
+    </update>
+
+    <select id="getCustomerList" resultType="com.himedia.twoving.dto.CustomerInquiryVO">
+        select * from customerinquiry where inquirytitle like concat('%', #{param2}, '%') order by reply asc, ciseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getCustomerInquiry" resultType="com.himedia.twoving.dto.CustomerInquiryVO">
+        select * from customerinquiry where ciseq=#{param1}
+    </select>
+
+    <update id="updateInquiryReply" parameterType="com.himedia.twoving.dto.CustomerInquiryVO">
+        update customerinquiry set reply=#{reply} where ciseq=#{ciseq}
     </update>
 
 </mapper>

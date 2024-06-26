@@ -7,6 +7,7 @@ public class ProductVO {
     private int pseq;
     private int kind;
     private String genre;
+    private String mainyn;
     private String bestyn;
     private String useyn;
     private String newyn;
