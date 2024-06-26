@@ -11,7 +11,9 @@ import java.util.List;
 public interface IPaymentDAO {
     int getAllCount(String userid);
 
-    List<PaymentVO> getSelectList();
+    PaymentVO getSelectList(String userid);
 
     ArrayList<PaymentVO> getAllList(Paging paging, String userid);
+
+    PaymentVO getPayment(String productname);
 }

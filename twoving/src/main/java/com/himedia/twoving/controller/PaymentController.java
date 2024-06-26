@@ -28,7 +28,7 @@ public class PaymentController {
         }else{
             HashMap<String, Object> hm = paymentService.passTicketList(request);
 
-            mav.addObject("paymentVO", hm.get("list"));
+            mav.addObject("paymentVO", hm.get("paymentVO"));
             mav.addObject("memberVO", hm.get("memberVO"));
             mav.addObject("passTicket2", hm.get("passTicket2List"));
             mav.addObject("paging", hm.get("paging"));

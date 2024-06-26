@@ -7,4 +7,8 @@
     <select id="selectOnePassTicket" resultType="com.himedia.twoving.dto.MemberVO">
         select* from member where userid=#{param1}
     </select>
+
+    <select id="selectMemberPassTicket" resultType="com.himedia.twoving.dto.MemberVO">
+        select* from member where userid=#{param1}
+    </select>
 </mapper>

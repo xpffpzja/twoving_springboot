@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IPassTicketDAO {
     MemberVO selectOnePassTicket(String userid);
+
+    MemberVO selectMemberPassTicket(String userid);
 }

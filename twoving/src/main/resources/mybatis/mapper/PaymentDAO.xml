@@ -9,10 +9,14 @@
     </select>
 
     <select id="getSelectList" resultType="com.himedia.twoving.dto.PaymentVO">
-        select* from payment where subscribeyn='Y'
+        select* from payment where userid=#{param1} and subscribeyn='Y'
     </select>
 
     <select id="getAllList" resultType="com.himedia.twoving.dto.PaymentVO">
         select* from payment where userid=#{param2} order by pmseq desc limit #{param1.displayRow} offset #{param1.startNum}
+    </select>
+
+    <select id="getPayment" resultType="com.himedia.twoving.dto.PaymentVO">
+        select* from payment where productname=#{param1} and subscribeyn='Y'
     </select>
 </mapper>

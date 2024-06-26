@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@ include file="header.jsp" %>
+<%@ include file="../passTicket/header.jsp" %>
 <title>이용권 선택</title>
 
 <div class="popup" style="display:flex; flex-direction: column; margin-top: 500px;">
@@ -149,17 +149,17 @@
 					<th>모바일,태블릿,PC,TV지원</th>
 				</tr>
 				<tr>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
 				</tr>
 				<tr>
 					<th>광고</th>
 				</tr>
 				<tr>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
 				</tr>
 				<input type="hidden" id="paymentprice" name="paymentprice" value=''/>
 				</c:when>
@@ -214,17 +214,17 @@
 					<th>모바일,태블릿,PC,TV지원</th>
 				</tr>
 				<tr>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
 				</tr>
 				<tr>
 					<th>광고</th>
 				</tr>
 				<tr>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
 				</tr>
 				<input type="hidden" id="paymentprice" name="paymentprice" value=''/>
 				</c:when>
@@ -279,17 +279,17 @@
 					<th>모바일,태블릿,PC,TV지원</th>
 				</tr>
 				<tr>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
 				</tr>
 				<tr>
 					<th>광고</th>
 				</tr>
 				<tr>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td style=""><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td style=""><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
 				</tr>
 				<input type="hidden" id="paymentprice" name="paymentprice" value=''/>
 				</c:when>
@@ -344,17 +344,17 @@
 					<th>모바일,태블릿,PC,TV지원</th>
 				</tr>
 				<tr>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td style=""><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td style=""><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
 				</tr>
 				<tr>
 					<th>광고</th>
 				</tr>
 				<tr>
-					<td><img src="images/checks.jpg" style="width:20px; border-radius:50%;"></td>
-					<td><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
-					<td style=""><img src="images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td><img src="/images/checks.jpg" style="width:20px; border-radius:50%;"></td>
+					<td><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
+					<td style=""><img src="/images/x.png" style="width:30px; border-radius:50%;"></td>
 				</tr>
 				<input type="hidden" id="paymentprice" name="paymentprice" value=''/>
 				</c:when>

@@ -73,7 +73,17 @@
                         &nbsp;구독권 없음
                     </c:otherwise>
                 </c:choose>
-                <a> <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/></a></p></div>
+                <a>
+                    <c:choose>
+                        <c:when test="${paymentVO.subscribeyn eq 'Y'}">
+                            <input type="button" onClick="updateDefuseCheck('${paymentVO.productname}')" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="button" onClick="updateDefuseCheck2()" value="이용권 구독"   style="background-color: #191919; border-radius: 3px; border:1px solid gray; color: white; cursor: pointer;"/>
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </div>
 
             <div class="box22-3" onClick="location.href='updateMemberForm'"><a><img src="/images/톱니바퀴.png" width="30px" height="30px" /></a>회원정보 수정</div>
 

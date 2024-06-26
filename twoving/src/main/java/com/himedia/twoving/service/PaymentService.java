@@ -70,11 +70,11 @@ public class PaymentService {
 
         paging.setTotalCount(count);
 
-        List<PaymentVO> list = paymentDAO.getSelectList(); // subscribeyn이 'Y' 인것만 레코드만 리턴
+        PaymentVO paymentVO = paymentDAO.getSelectList(memberVO.getUserid()); // subscribeyn이 'Y' 인것만 레코드만 리턴
 
         ArrayList<PaymentVO> passTicket2List = paymentDAO.getAllList(paging, memberVO.getUserid());
 
-        hm.put("paymentVO", list);
+        hm.put("paymentVO", paymentVO);
         hm.put("memberVO", memberVO1);
         hm.put("passTicket2List", passTicket2List);
         hm.put("paging", paging);
