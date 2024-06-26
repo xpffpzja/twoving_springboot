@@ -1,6 +1,7 @@
 package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.MemberVO;
+import com.himedia.twoving.dto.PaymentVO;
 import com.himedia.twoving.dto.steamedVO;
 import com.himedia.twoving.service.PassTicketService;
 import com.himedia.twoving.service.PaymentService;
@@ -96,8 +97,10 @@ public class steamedController {
             ArrayList<steamedVO> Alist = ss.selectKindProduct(kind);
 
             MemberVO memberVO = paymentService.selectOneTicket(loginUser.getUserid());
+            PaymentVO paymentVO = paymentService.paymentOneSelect(loginUser.getUserid());
 
             mav.addObject("memberVO", memberVO);
+            mav.addObject("paymentVO", paymentVO);
             mav.addObject("kind", kind);
             mav.addObject("list", list);
             mav.addObject("Alist", Alist);
