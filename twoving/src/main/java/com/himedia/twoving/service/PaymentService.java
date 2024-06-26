@@ -60,7 +60,6 @@ public class PaymentService {
 
         Paging paging = new Paging();
 
-        paging.setPage(page);
 
         MemberVO memberVO1 = passTicketDAO.selectOnePassTicket(memberVO.getUserid());
 
@@ -69,6 +68,8 @@ public class PaymentService {
         System.out.println("count : " + count);
 
         paging.setTotalCount(count);
+        paging.calPaging();
+        paging.setStartNum(paging.getStartNum()-1);
 
         PaymentVO paymentVO = paymentDAO.getSelectList(memberVO.getUserid()); // subscribeyn이 'Y' 인것만 레코드만 리턴
 
@@ -127,6 +128,8 @@ public class PaymentService {
         System.out.println("count : " + count);
 
         paging.setTotalCount(count);
+        paging.calPaging();
+        paging.setStartNum(paging.getStartNum()-1);
 
         PaymentVO paymentVO = paymentDAO.getSelectList(memberVO.getUserid()); // subscribeyn이 'Y' 인것만 레코드만 리턴
 

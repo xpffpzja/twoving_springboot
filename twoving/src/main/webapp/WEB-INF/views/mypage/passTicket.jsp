@@ -55,7 +55,7 @@
         <div class="box22">
             <div class="box22-1"><img src="/images/logo.png" width="120px" height="120px"/></div>
             <div class="box22-2"><span>이름</span>&nbsp;&nbsp; ${loginUser.name} <br>
-                <a><img src="/member/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
+                <a><img src="/images/구름.png" width="30px" height="30px" /></a>&nbsp; 나의 이용권
                 <c:choose>
                     <c:when test="${memberVO.ptseq == 1}">
                         &nbsp;광고형 스탠다드
