@@ -158,7 +158,6 @@ public class AdminController {
     @PostMapping("/adminProductUpdate")
     public String adminProductUpdate(@ModelAttribute("dto") ProductVO productvo,
                                     HttpServletRequest request, BindingResult result, Model model){
-        System.out.println("여긴오니");
         String url="redirect:/adminProductDetail?pseq="+productvo.getPseq();
         as.updateProduct(productvo);
         return url;

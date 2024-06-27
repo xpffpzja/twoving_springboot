@@ -4,7 +4,7 @@
 <%@ include file="../sub_menu.jsp" %>
 
 <article>
-	<form method = "post" name="frm">
+	<form name="frm"> <!-- method = "post"  -->
 	<div class="tb">
 		<div class="row">
 			<div class="col" style="display:flex; align-items : center; border:3px solid black;">
