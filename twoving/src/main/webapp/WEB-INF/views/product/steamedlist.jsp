@@ -22,7 +22,7 @@
                     &nbsp;프리미엄
                 </c:when>
                 <c:otherwise>
-                    이용권 없음
+                    구독권 없음
                 </c:otherwise>
             </c:choose>
 

@@ -2,6 +2,7 @@ package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.*;
 import com.himedia.twoving.service.AdminService;
+import com.himedia.twoving.service.PaymentService;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -24,6 +25,9 @@ import java.util.HashMap;
 public class AdminController {
     @Autowired
     AdminService as;
+
+    @Autowired
+    private PaymentService paymentService;
 
     @GetMapping("/admin")
     public String admin() {
@@ -366,10 +370,16 @@ public class AdminController {
     public ModelAndView customerInquiryListMypage(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
         HttpSession session = request.getSession();
-        if(session.getAttribute("loginUser") == null){
+        MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
+        if(memberVO == null){
             mav.setViewName("member/loginForm");
         }else{
             HashMap<String,Object> result = as.getCustomerInquiryListMypage(request);
+            MemberVO memberVO1 = paymentService.selectOneMemberVO(memberVO.getUserid());
+            PaymentVO paymentVO = paymentService.selectOnePaymentVO(memberVO.getUserid());
+
+            mav.addObject("memberVO", memberVO1);
+            mav.addObject("paymentVO", paymentVO);
             mav.addObject("inquiryList", result.get("inquiryList"));
             mav.addObject("paging", result.get("paging"));
             mav.addObject("key", result.get("key"));

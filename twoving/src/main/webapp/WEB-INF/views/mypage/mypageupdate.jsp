@@ -21,6 +21,9 @@
          		<c:when test="${memberVO.ptseq == 4}">
          			&nbsp;프리미엄
          		</c:when>
+			 	<c:otherwise>
+					이용권 없음
+				</c:otherwise>
          	</c:choose>
          
          <a>
@@ -54,7 +57,7 @@
 			<br>
 			<div id="hahaha">
 			<c:forEach var = "ssteamed" items="${steamedList1}">
-						<div id="ssteamed"><a href="Tdetail?pseq=${ssteamed.pseq}"><img src="images/image2/${ssteamed.savefilename}"></a></div>
+						<div id="ssteamed"><a href="Tdetail?pseq=${ssteamed.pseq}"><img src="/images/image2/${ssteamed.savefilename}"></a></div>
 					</c:forEach>
 			</div>					
 	 </div>

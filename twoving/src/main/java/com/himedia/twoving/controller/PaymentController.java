@@ -2,6 +2,7 @@ package com.himedia.twoving.controller;
 
 import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.service.PaymentService;
+import com.himedia.twoving.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
@@ -16,6 +18,9 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Autowired
+    private ProductService ps;
 
     @GetMapping("/mypageupdate")
     public ModelAndView mypageupdate(HttpServletRequest request) {
@@ -27,9 +32,12 @@ public class PaymentController {
             mav.setViewName("redirect:/loginForm");
         }else{
             HashMap<String, Object> hm = paymentService.passTicketListMyPageUpdate(request);
+            ArrayList<Integer> list = ps.getKindList();
 
             mav.addObject("paymentVO", hm.get("paymentVO"));
             mav.addObject("memberVO", hm.get("memberVO"));
+
+            mav.addObject("kindList", list);
             // mav.addObject("passTicket2", hm.get("passTicket2List"));
             // mav.addObject("paging", hm.get("paging"));
             mav.setViewName("mypage/mypageupdate");
