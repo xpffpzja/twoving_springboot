@@ -6,6 +6,7 @@ import com.himedia.twoving.dto.OAuthToken;
 import com.himedia.twoving.dto.KakaoProfile;
 import com.himedia.twoving.dto.MemberVO;
 import com.himedia.twoving.service.MemberService;
+import com.himedia.twoving.service.PaymentService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -26,6 +27,9 @@ public class MemberController {
 
     @Autowired
     MemberService ms;
+
+    @Autowired
+    PaymentService paymentService;
 
     @GetMapping("/")
     public String index() {
@@ -111,7 +115,15 @@ public class MemberController {
     }
 
     @GetMapping("/deleteMemberForm")
-    public String deleteMemberForm(){
+    public String deleteMemberForm(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+
+        MemberVO memberVO = (MemberVO) session.getAttribute("loginUser");
+
+        MemberVO memberVO1 = paymentService.selectOneTwoMemberVO(memberVO.getUserid());
+
+        model.addAttribute("memberVO", memberVO1);
+
         return "mypage/deleteMember";
     }
 

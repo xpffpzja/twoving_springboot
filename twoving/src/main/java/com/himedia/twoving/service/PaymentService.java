@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -169,5 +170,10 @@ public class PaymentService {
     public PaymentVO selectOnePaymentVO(String userid) {
         PaymentVO paymentVO = paymentDAO.getSelectList(userid);
         return paymentVO;
+    }
+
+    public MemberVO selectOneTwoMemberVO(String userid) {
+        MemberVO memberVO = passTicketDAO.selectOnePassTicket(userid);
+        return memberVO;
     }
 }

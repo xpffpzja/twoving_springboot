@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/admin/css/adminList.css" />
 <script src="/admin/script/admin.js"></script>
 <script src="/admin/script/mypage.js"></script>
+<script src="/script/payment.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/mypage.css">
 <link rel="stylesheet" type="text/css" href="/css/inquiry.css">
 <article>
@@ -13,7 +14,7 @@
 		  <div class="box">
    
    <div class="box1">
-   <input type="button" class="logo" onclick="location.href='tMain'" style="cursor: pointer; color:red;" value="TWOVING" />
+   <input type="button" class="logo" onclick="location.href='Tmain'" style="cursor: pointer; color:red;" value="TWOVING" />
                <div class="box1-2"><a href="Tkind?kind=0"  style="color:white;">시리즈</a></div>
                <div class="box1-3"><a href="Tkind?kind=1" style="color:white;">영화</a></div>
     </div>

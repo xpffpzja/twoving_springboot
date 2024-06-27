@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input type="button" style="cursor: pointer;" class="logo" onclick="location.href='tMain'" value="TWOVING" />
+<input type="button" style="cursor: pointer;" class="logo" onclick="location.href='Tmain'" value="TWOVING" />
   <h1>회원탈퇴</h1>
   <form>
   <div class="text1"> 탈퇴를 원하시면, 아래 사항을 반드시 확인해주세요.</div>
@@ -46,18 +46,21 @@
 	  <div class="box2">
 	  <div class="tb3">
 	  	<c:choose>
-	         			<c:when test="${passTicketVO.ptseq == 1}">
+	         			<c:when test="${memberVO.ptseq == 1}">
 	         				광고형 스탠다드
 	         			</c:when>
-	         			<c:when test="${passTicketVO.ptseq == 2}">
+	         			<c:when test="${memberVO.ptseq == 2}">
 	         				베이직
 	         			</c:when>
-	         			<c:when test="${passTicketVO.ptseq == 3}">
+	         			<c:when test="${memberVO.ptseq == 3}">
 							스탠다드		
 	         			</c:when>
-	         			<c:when test="${passTicketVO.ptseq == 4}">
+	         			<c:when test="${memberVO.ptseq == 4}">
 	         				프리미엄
 	         			</c:when>
+						<c:otherwise>
+							이용권 없음
+						</c:otherwise>
 	         </c:choose>
 	  </div>
 	  <div class="tb4">0</div>
