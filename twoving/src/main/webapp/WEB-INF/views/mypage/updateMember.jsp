@@ -12,7 +12,7 @@
 </head>
 <body>
 <form method="post" action="updateMember" name="updateForm">
-	<button class="logo" onclick="location.href='indexForm'" style="cursor: pointer;">TWOVING</button>
+	<div class="logo" onclick="location.href='Tmain'" style="cursor: pointer;">TWOVING</div>
 					<h2 style="margin-top: 50px;">회원정보 수정</h2>
 					<div class="field">
 						<label style="font-size: 130%; text-align: left;">아이디</label>

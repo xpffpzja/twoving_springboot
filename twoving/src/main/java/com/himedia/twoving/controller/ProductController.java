@@ -154,9 +154,4 @@ public class ProductController {
     mav.setViewName("product/searchlist");
     return mav;
   }
-
-
-
-
-
 }
